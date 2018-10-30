@@ -21,6 +21,8 @@ import android.widget.ImageView;
 import android.widget.ListPopupWindow;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import android.Manifest;
@@ -141,11 +143,6 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
             Marker marker = mMap.addMarker(new MarkerOptions().position(esquirol));
             Marker markerb = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel.getLatitude(), bonbonModel.getLongitude())));
         }
-
-
-
-
-
     }
 
     @Override
@@ -158,23 +155,16 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         if (mapFragment != null) {
             mapFragment.getMapAsync(this);
         }
-        
 
-
-
-
-
-
+        //TODO: A faire démarrer quand click sur trick + visible
+        //ImageView ivPumpkin = (ImageView) getActivity().findViewById(R.id.iv_pumpkin);
+        //ivPumpkin.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.tourne_infini));
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-
     }
-
-
 
     private void getDeviceLocation() {
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getActivity());
@@ -188,7 +178,6 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
                             Location currentLocation = (Location) task.getResult();
                             if (currentLocation != null) {
                                 moveCamera(esquirol, DEFAULT_ZOOM);
-
                             }
                         } else {
                             Toast.makeText(getActivity(), R.string.unableCurrentLocation, Toast.LENGTH_SHORT).show();
