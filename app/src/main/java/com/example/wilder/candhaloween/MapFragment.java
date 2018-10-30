@@ -138,9 +138,20 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
                 mMap.setMyLocationEnabled(true);
             }
             BonbonModel bonbonModel=new BonbonModel();
-            Marker marker = mMap.addMarker(new MarkerOptions().position(esquirol));
-            Marker markerb = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel.getLatitude(), bonbonModel.getLongitude())));
+            Gagemodel gagemodel =new Gagemodel();
+            Marker marker = mMap.addMarker(new MarkerOptions().position(esquirol).icon(BitmapDescriptorFactory.fromResource(R.drawable.arrow));
+            Marker markerB = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel.getLatitude(), bonbonModel.getLongitude())));
+            Marker markerG= mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel.getLatitude(),gagemodel.getLongitude())));
         }
+
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                Toast.makeText(getActivity(), R.string.catchbonbon, Toast.LENGTH_SHORT);
+                return false;
+
+            }
+        });
 
 
 

@@ -58,6 +58,14 @@ public class MenuActivity extends AppCompatActivity
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Kinder_surprise), null,43.134689, 1.453467));
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Car_en_Sac), null,43.457689, 1.453457));
 
+        ArrayList<Gagemodel>mGage= new ArrayList<>();
+        mGage.add(new Gagemodel(getString(R.string.gage1),43.606838,	1.465845));
+        mGage.add(new Gagemodel(getString(R.string.gage2),43.604268,	1.441019));
+        mGage.add(new Gagemodel(getString(R.string.gage3),43.614954,1.499982));
+        mGage.add(new Gagemodel(getString(R.string.gage4),43.604268,	1.441019));
+        mGage.add(new Gagemodel(getString(R.string.gage5),43.567716,	1.487043));
+
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
