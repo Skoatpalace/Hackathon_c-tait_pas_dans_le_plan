@@ -10,4 +10,25 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Crocodile">Crocodile</string>
+    <string name="Tagada">Tagada</string>
+    <string name="Marshmallow">Marshmallow</string>
+    <string name="Dragibus">Dragibus</string>
+    <string name="Ourson">Ourson</string>
+    <string name="Arlequin">Arlequin</string>
+    <string name="Schtroumpfs">Schtroumpfs</string>
+    <string name="Chocobons">Chocobons</string>
+    <string name="Oeuf_au_plat">Oeuf au plat</string>
+    <string name="Roudoudou">Roudoudou</string>
+    <string name="Langue_pik">Langue Pik</string>
+    <string name="Cola">Cola</string>
+    <string name="Carambar">Carambar</string>
+    <string name="Banane">Banane</string>
+    <string name="Boule_de_mammouth">Boule de Mammouth</string>
+    <string name="Skittles">Skittles</string>
+    <string name="M_Ms">M\u0026M\'s</string>
+    <string name="Papillote">Papillote</string>
+    <string name="Kinder_surprise">Kinder Surprise</string>
+    <string name="Malabar">Malabar</string>
+        <string name="Car_en_Sac">CARenSAC</string>
 </resources>
