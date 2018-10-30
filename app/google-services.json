@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "974776477094-qiufcek8ssu4bn96lnk3pkif28003but.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.wilder.candhaloween",
+            "certificate_hash": "fee48e94b4a82f64696f87d9a266c4bdc7612515"
+          }
+        },
+        {
           "client_id": "974776477094-ssn02m7jkpeiqisf7l20ir76li20v2o7.apps.googleusercontent.com",
           "client_type": 3
         }

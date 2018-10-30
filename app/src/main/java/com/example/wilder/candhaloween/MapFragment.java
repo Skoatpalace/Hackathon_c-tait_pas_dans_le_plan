@@ -21,10 +21,12 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.gms.maps.model.MapStyleOptions;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -37,6 +39,8 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
     private static final String COURSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
     private static final float DEFAULT_ZOOM = 17f;
+   // private static final String TAG = MapsFragment.class.getSimpleName();
+
     private LatLng esquirol = new LatLng(43.600346, 1.443844);
 
     //vars
@@ -49,6 +53,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.setMapStyle((MapStyleOptions.loadRawResourceStyle(getContext(),R.raw.tyle_json)));
         moveCamera(esquirol, DEFAULT_ZOOM);
         getLocationPermission();
         if (mLocationPermissionsGranted) {
