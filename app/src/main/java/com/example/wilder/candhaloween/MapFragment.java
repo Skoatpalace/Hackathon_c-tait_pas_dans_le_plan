@@ -109,9 +109,27 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
     private static final String COURSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
     private static final float DEFAULT_ZOOM = 17f;
+
    // private static final String TAG = MapsFragment.class.getSimpleName();
 
     private LatLng esquirol = new LatLng(43.600346, 1.443844);
+    private LatLng bonbon1 = new LatLng(43.700998, 1.489429);
+    private LatLng bonbon2 = new LatLng(42.986370, 1.086368);
+    private LatLng bonbon3 = new LatLng(42.600346, 1.657899);
+    private LatLng bonbon4 = new LatLng(42.600346, 1.453197);
+    private LatLng bonbon5 = new LatLng(41.600346, 1.325797);
+    private LatLng bonbon6 = new LatLng(41.600346, 1.247864);
+    private LatLng bonbon7 = new LatLng(41.600346, 1.468988);
+    private LatLng bonbon8 = new LatLng(41.874795, 1.543278);
+    private LatLng bonbon9 = new LatLng(41.600346, 1.986432);
+    private LatLng bonbon10 = new LatLng(41.366438, 1.652399);
+    private LatLng bonbon11 = new LatLng(42.600346, 1.474789);
+    private LatLng bonbon12 = new LatLng(41.368976, 1.226799);
+    private LatLng bonbon13 = new LatLng(41.576659, 1.653468);
+    private LatLng bonbon14 = new LatLng(43.878687, 1.765346);
+    private LatLng bonbon15 = new LatLng(43.135799, 1.654467);
+    private LatLng bonbon16 = new LatLng(42.687674, 1.653457);
+    private LatLng bonbon17 = new LatLng(43.134689, 1.453467);
 
     //vars
     private Boolean mLocationPermissionsGranted = false;
@@ -137,7 +155,10 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
             }
         }
 
+
         Marker marker = mMap.addMarker(new MarkerOptions().position(esquirol));
+
+
     }
 
     @Override
@@ -150,54 +171,21 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         if (mapFragment != null) {
             mapFragment.getMapAsync(this);
         }
+
+
+
+
+
+
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
     }
 
-    public LatLng getRandomLocation(LatLng point, int radius) {
 
-        List<LatLng> randomPoints = new ArrayList<>();
-        List<Float> randomDistances = new ArrayList<>();
-        Location myLocation = new Location("");
-        myLocation.setLatitude(point.latitude);
-        myLocation.setLongitude(point.longitude);
-
-        //This is to generate 10 random points
-        for(int i = 0; i<10; i++) {
-            double x0 = point.latitude;
-            double y0 = point.longitude;
-
-            Random random = new Random();
-
-            // Convert radius from meters to degrees
-            double radiusInDegrees = radius / 111000f;
-
-            double u = random.nextDouble();
-            double v = random.nextDouble();
-            double w = radiusInDegrees * Math.sqrt(u);
-            double t = 2 * Math.PI * v;
-            double x = w * Math.cos(t);
-            double y = w * Math.sin(t);
-
-            // Adjust the x-coordinate for the shrinking of the east-west distances
-            double new_x = x / Math.cos(y0);
-
-            double foundLatitude = new_x + x0;
-            double foundLongitude = y + y0;
-            LatLng randomLatLng = new LatLng(foundLatitude, foundLongitude);
-            randomPoints.add(randomLatLng);
-            Location l1 = new Location("");
-            l1.setLatitude(randomLatLng.latitude);
-            l1.setLongitude(randomLatLng.longitude);
-            randomDistances.add(l1.distanceTo(myLocation));
-        }
-        //Get nearest point to the centre
-        int indexOfNearestPointToCentre = randomDistances.indexOf(Collections.min(randomDistances));
-        return randomPoints.get(indexOfNearestPointToCentre);
-    }
 
     private void getDeviceLocation() {
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getActivity());
@@ -265,6 +253,47 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
                 }
             }
         }
+    }
+    public LatLng getRandomLocation(LatLng point, int radius) {
+
+        List<LatLng> randomPoints = new ArrayList<>();
+        List<Float> randomDistances = new ArrayList<>();
+        Location myLocation = new Location("");
+        myLocation.setLatitude(point.latitude);
+        myLocation.setLongitude(point.longitude);
+
+        //This is to generate 10 random points
+        for (int i = 0; i < 10; i++) {
+            double x0 = point.latitude;
+            double y0 = point.longitude;
+
+            Random random = new Random();
+
+            // Convert radius from meters to degrees
+            double radiusInDegrees = radius / 111000f;
+
+            double u = random.nextDouble();
+            double v = random.nextDouble();
+            double w = radiusInDegrees * Math.sqrt(u);
+            double t = 2 * Math.PI * v;
+            double x = w * Math.cos(t);
+            double y = w * Math.sin(t);
+
+            // Adjust the x-coordinate for the shrinking of the east-west distances
+            double new_x = x / Math.cos(y0);
+
+            double foundLatitude = new_x + x0;
+            double foundLongitude = y + y0;
+            LatLng randomLatLng = new LatLng(foundLatitude, foundLongitude);
+            randomPoints.add(randomLatLng);
+            Location l1 = new Location("");
+            l1.setLatitude(randomLatLng.latitude);
+            l1.setLongitude(randomLatLng.longitude);
+            randomDistances.add(l1.distanceTo(myLocation));
+        }
+        //Get nearest point to the centre
+        int indexOfNearestPointToCentre = randomDistances.indexOf(Collections.min(randomDistances));
+        return randomPoints.get(indexOfNearestPointToCentre);
     }
 
 

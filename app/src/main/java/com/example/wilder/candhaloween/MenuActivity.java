@@ -45,28 +45,6 @@ public class MenuActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        /*ArrayList<BonbonModel> bonbonModel = new ArrayList<>();
-
-        bonbonModel.add(R.string.Crocodile, null);
-        bonbonModel.add(R.string.Tagada, null);
-        bonbonModel.add(R.string.Marshmallow, null);
-        bonbonModel.add(R.string.Dragibus, null);
-        bonbonModel.add(R.string.Ourson, null);
-        bonbonModel.add(R.string.Arlequin, null);
-        bonbonModel.add(R.string.Oeuf_au_plat, null);
-        bonbonModel.add(R.string.Schtroumpfs, null);
-        bonbonModel.add(R.string.Carambar, null);
-        bonbonModel.add(R.string.Cola, null);
-        bonbonModel.add(R.string.Roudoudou, null);
-        bonbonModel.add(R.string.Langue_pik, null);
-        bonbonModel.add(R.string.Banane, null);
-        bonbonModel.add(R.string.Boule_de_mammouth, null);
-        bonbonModel.add(R.string.Skittles, null);
-        bonbonModel.add(R.string.M_Ms, null);
-        bonbonModel.add(R.string.Papillote, null);
-        bonbonModel.add(R.string.Kinder_surprise, null);
-        bonbonModel.add(R.string.Car_en_Sac, null);*/
-
 
     }
 
