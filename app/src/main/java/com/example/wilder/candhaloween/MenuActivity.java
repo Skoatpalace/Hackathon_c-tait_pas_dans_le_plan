@@ -38,7 +38,7 @@ public class MenuActivity extends AppCompatActivity
         });
         ArrayList<BonbonModel> mBonbon = new ArrayList<>();
 
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Crocodile), null,43.600346, 1.443844));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Crocodile), "@drawable/crocodilebonbno",43.600346, 1.443844));
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Tagada), null,43.700998, 1.489429));
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Marshmallow), null,42.986370, 1.086368));
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Dragibus), null,42.600346, 1.657899));
@@ -133,14 +133,12 @@ public class MenuActivity extends AppCompatActivity
             ft.commit();
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ListFragment listFragment = new ListFragment();
+            ft.replace(R.id.ftMain, listFragment);
+            ft.commit();
 
         } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
 
         }
 
