@@ -15,6 +15,8 @@ import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -79,6 +81,10 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         if (mapFragment != null) {
             mapFragment.getMapAsync(this);
         }
+
+        //TODO: A faire démarrer quand click sur trick + visible
+        //ImageView ivPumpkin = (ImageView) getActivity().findViewById(R.id.iv_pumpkin);
+        //ivPumpkin.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.tourne_infini));
     }
 
     @Override
