@@ -79,6 +79,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         if (mapFragment != null) {
             mapFragment.getMapAsync(this);
         }
+
     }
 
     @Override

@@ -27,4 +27,5 @@ public class BonbonModel {
     public void setPhoto(String photo) {
         this.photo = photo;
     }
+
 }
