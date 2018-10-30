@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "974776477094",
+    "firebase_url": "https://halloween-5f896.firebaseio.com",
+    "project_id": "halloween-5f896",
+    "storage_bucket": "halloween-5f896.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:974776477094:android:f2fc2a4b14165e5e",
+        "android_client_info": {
+          "package_name": "com.example.wilder.candhaloween"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "974776477094-2rgjcdmm94c5jssms03cocjr79hddupf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.wilder.candhaloween",
+            "certificate_hash": "4451d7113efd07bb21a6f210d8231303f02ae169"
+          }
+        },
+        {
+          "client_id": "974776477094-qiufcek8ssu4bn96lnk3pkif28003but.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.wilder.candhaloween",
+            "certificate_hash": "fee48e94b4a82f64696f87d9a266c4bdc7612515"
+          }
+        },
+        {
+          "client_id": "974776477094-ssn02m7jkpeiqisf7l20ir76li20v2o7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdLkEyEIbj6NIjuSZhvOuJQHAL5xc7Gf8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "974776477094-ssn02m7jkpeiqisf7l20ir76li20v2o7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
