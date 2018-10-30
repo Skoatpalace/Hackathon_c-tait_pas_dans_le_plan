@@ -1,5 +1,6 @@
 package com.example.wilder.candhaloween;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -35,6 +36,27 @@ public class MenuActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
+        ArrayList<BonbonModel> mBonbon = new ArrayList<>();
+
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Crocodile), null));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Tagada), null));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Marshmallow), null));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Dragibus), null));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Ourson), null));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Arlequin), null));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Oeuf_au_plat), null));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Schtroumpfs), null));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Carambar), null));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Cola), null));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Roudoudou), null));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Langue_pik), null));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Banane), null));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Boule_de_mammouth), null));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Skittles), null));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.M_Ms), null));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Papillote), null));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Kinder_surprise), null));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Car_en_Sac), null));
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -42,11 +64,21 @@ public class MenuActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
 
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        MapFragment mapFragment = new MapFragment();
+        ft.replace(R.id.ftMain, mapFragment);
+        ft.commit();
     }
+
+
+
+
+
+
 
     @Override
     public void onBackPressed() {
