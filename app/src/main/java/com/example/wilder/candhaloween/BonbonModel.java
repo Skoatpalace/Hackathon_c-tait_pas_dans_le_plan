@@ -13,16 +13,35 @@ public class BonbonModel {
 
     private String name;
     private String photo;
-    private Location location;
+    private double latitude;
+    private  double longitude;
+
 
     public BonbonModel(String name, String photo, double latitude, double longitude) {
 
         this.name = name;
         this.photo = photo;
-        this.location = location;
+        this.latitude = latitude;
+        this.longitude=longitude;
     }
 
     public BonbonModel() {
+    }
+
+    public  double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 
     public String getName() {
@@ -41,14 +60,7 @@ public class BonbonModel {
         this.photo = photo;
     }
 
-    public Location getLocation() {
 
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
 
 }
 

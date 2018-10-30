@@ -113,23 +113,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
    // private static final String TAG = MapsFragment.class.getSimpleName();
 
     private LatLng esquirol = new LatLng(43.600346, 1.443844);
-    private LatLng bonbon1 = new LatLng(43.700998, 1.489429);
-    private LatLng bonbon2 = new LatLng(42.986370, 1.086368);
-    private LatLng bonbon3 = new LatLng(42.600346, 1.657899);
-    private LatLng bonbon4 = new LatLng(42.600346, 1.453197);
-    private LatLng bonbon5 = new LatLng(41.600346, 1.325797);
-    private LatLng bonbon6 = new LatLng(41.600346, 1.247864);
-    private LatLng bonbon7 = new LatLng(41.600346, 1.468988);
-    private LatLng bonbon8 = new LatLng(41.874795, 1.543278);
-    private LatLng bonbon9 = new LatLng(41.600346, 1.986432);
-    private LatLng bonbon10 = new LatLng(41.366438, 1.652399);
-    private LatLng bonbon11 = new LatLng(42.600346, 1.474789);
-    private LatLng bonbon12 = new LatLng(41.368976, 1.226799);
-    private LatLng bonbon13 = new LatLng(41.576659, 1.653468);
-    private LatLng bonbon14 = new LatLng(43.878687, 1.765346);
-    private LatLng bonbon15 = new LatLng(43.135799, 1.654467);
-    private LatLng bonbon16 = new LatLng(42.687674, 1.653457);
-    private LatLng bonbon17 = new LatLng(43.134689, 1.453467);
+
 
     //vars
     private Boolean mLocationPermissionsGranted = false;
@@ -153,10 +137,13 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
                     != PackageManager.PERMISSION_GRANTED) {
                 mMap.setMyLocationEnabled(true);
             }
+            BonbonModel bonbonModel=new BonbonModel();
+            Marker marker = mMap.addMarker(new MarkerOptions().position(esquirol));
+            Marker markerb = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel.getLatitude(), bonbonModel.getLongitude())));
         }
 
 
-        Marker marker = mMap.addMarker(new MarkerOptions().position(esquirol));
+
 
 
     }
@@ -171,7 +158,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         if (mapFragment != null) {
             mapFragment.getMapAsync(this);
         }
-
+        
 
 
 
@@ -183,6 +170,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
 
     }
 
@@ -200,6 +188,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
                             Location currentLocation = (Location) task.getResult();
                             if (currentLocation != null) {
                                 moveCamera(esquirol, DEFAULT_ZOOM);
+
                             }
                         } else {
                             Toast.makeText(getActivity(), R.string.unableCurrentLocation, Toast.LENGTH_SHORT).show();
