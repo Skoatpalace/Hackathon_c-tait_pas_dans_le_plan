@@ -27,4 +27,7 @@ class singleton {
         return true;
     }
 
+    public void setGris(boolean gris) {
+        this.gris = gris;
+    }
 }

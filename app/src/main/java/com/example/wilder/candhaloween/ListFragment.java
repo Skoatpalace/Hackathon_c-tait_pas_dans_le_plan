@@ -101,25 +101,25 @@ public class ListFragment extends Fragment {
 
         ArrayList<BonbonModel> mBonbon = new ArrayList<>();
 
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Crocodile), "@drawable/crocodilebonbno",43.600346, 1.443844));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Tagada), null,43.700998, 1.489429));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Marshmallow), null,42.986370, 1.086368));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Dragibus), null,42.600346, 1.657899));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Ourson), null,42.600346, 1.453197));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Arlequin), null,41.600346, 1.325797));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Oeuf_au_plat), null,41.600346, 1.247864));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Schtroumpfs), null,41.600346, 1.468988));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Carambar), null,41.874795, 1.543278));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Cola), null,41.600346, 1.986432));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Roudoudou), null,41.366438, 1.652399));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Langue_pik), null,42.600346, 1.474789));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Banane), null,41.368976, 1.226799));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Boule_de_mammouth), null,41.576659, 1.653468));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Skittles), null,43.878687, 1.765346));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.M_Ms), null,43.135799, 1.65446));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Papillote), null,42.687674, 1.653457));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Kinder_surprise), null,43.134689, 1.453467));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Car_en_Sac), null,43.457689, 1.453457));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Crocodile), getResources().getDrawable(R.drawable.crocodilebonbno),43.606489, 1.444153));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Tagada), getResources().getDrawable(R.drawable.tagadabonbon),43.592190, 1.441698));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Marshmallow), getResources().getDrawable(R.drawable.marshmallow),43.594278, 1.444409));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Dragibus), getResources().getDrawable(R.drawable.dragibus),43.594278, 1.444409));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Ourson), getResources().getDrawable(R.drawable.ourson),43.59923812, 1.43892695));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Arlequin), getResources().getDrawable(R.drawable.arlequin),43.60201328, 1.44465463));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Oeuf_au_plat), getResources().getDrawable(R.drawable.oeuf),43.59388259, 1.4508802));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Schtroumpfs), getResources().getDrawable(R.drawable.schtrounf),43.60152454, 1.43924955));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Carambar), getResources().getDrawable(R.drawable.carambar),43.60400284, 1.432515));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Cola), getResources().getDrawable(R.drawable.cola),43.59839905, 1.44201096));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Roudoudou), getResources().getDrawable(R.drawable.roudoudou),43.60572688, 1.45061624));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Langue_pik), getResources().getDrawable(R.drawable.languedechat),43.6035295, 1.44562683));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Banane), getResources().getDrawable(R.drawable.bananebonbon),43.59147733, 1.440788));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Boule_de_mammouth), getResources().getDrawable(R.drawable.mamouthbonbon),43.60083768, 1.44874592));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Skittles), getResources().getDrawable(R.drawable.skittlesbonbon),43.60090453, 1.43445538));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.M_Ms), getResources().getDrawable(R.drawable.mnmbonbon),43.60363231, 1.43805026));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Kinder_surprise), getResources().getDrawable(R.drawable.kindersurprisebonbon),43.59882815, 1.4413074));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Car_en_Sac), getResources().getDrawable(R.drawable.pilsbonbon),43.59431834, 1.43704105));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Car_en_Sac), getResources().getDrawable(R.drawable.pilsbonbon),43.6062955, 1.43540997));
 
         RecyclerView listBonbon = getView().findViewById(R.id.list);
 
