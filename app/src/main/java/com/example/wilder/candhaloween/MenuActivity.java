@@ -1,6 +1,7 @@
 package com.example.wilder.candhaloween;
 
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
@@ -33,6 +34,7 @@ public class MenuActivity extends AppCompatActivity
         setContentView(R.layout.activity_menu);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         singleton singletonn = singleton.getInstance();
         ArrayList<BonbonModel> mBonbon = new ArrayList<>();
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Crocodile), getResources().getDrawable(R.drawable.crocodilebonbno),43.606489, 1.444153));
@@ -112,12 +114,16 @@ public class MenuActivity extends AppCompatActivity
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             MapFragment mapFragment = new MapFragment();
             ft.replace(R.id.ftMain, mapFragment);
+            //MediaPlayer mediaPlayer = MediaPlayer.create(MenuActivity.this,R.raw.clown);
+            //mediaPlayer.start();
             ft.commit();
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ListFragment listFragment = new ListFragment();
             ft.replace(R.id.ftMain, listFragment);
+            //MediaPlayer mediaPlayer = MediaPlayer.create(MenuActivity.this,R.raw.clown);
+            //mediaPlayer.start();
             ft.commit();
 
         }
