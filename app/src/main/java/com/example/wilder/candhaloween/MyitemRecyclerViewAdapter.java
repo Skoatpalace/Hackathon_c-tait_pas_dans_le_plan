@@ -1,6 +1,8 @@
 package com.example.wilder.candhaloween;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.support.annotation.DrawableRes;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.wilder.candhaloween.ListFragment.OnListFragmentInteractionListener;
 import com.example.wilder.candhaloween.dummy.DummyContent.DummyItem;
+import com.google.android.gms.flags.Singletons;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,7 +73,15 @@ public class MyitemRecyclerViewAdapter extends RecyclerView.Adapter<MyitemRecycl
 
         final BonbonModel bonbonModel = mBonbon.get(position);
         //TODO: ajout images
-        holder.ivBonbon.setImageDrawable(bonbonModel.getPhoto());
+        singleton sg = singleton.getInstance();
+        if (sg.isGris() == false) {
+
+            holder.ivBonbon.setImageDrawable(bonbonModel.getPhoto());
+        } else if (sg.isGris() == true){
+
+            holder.ivBonbon.setImageResource(R.drawable.bonbongris);
+        }
+
         holder.tvNomBonbon.setText(bonbonModel.getName());
     }
 
