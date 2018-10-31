@@ -21,12 +21,24 @@
             android:title="Mes Bonbons" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Niveaux">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/main"
-                android:title="Share" />
+                android:id="@+id/nav_nv1"
+                android:icon="@drawable/diable"
+                android:title="Niveau 1" />
+            <item
+                android:id="@+id/nav_nv2"
+                android:icon="@drawable/vempire"
+                android:title="Niveau 2" />
+            <item
+                android:id="@+id/nav_nv3"
+                android:icon="@drawable/momie"
+                android:title="Niveau 3" />
+            <item
+                android:id="@+id/nav_nv4"
+                android:icon="@drawable/frankenstein"
+                android:title="Niveau 4" />
         </menu>
     </item>
 

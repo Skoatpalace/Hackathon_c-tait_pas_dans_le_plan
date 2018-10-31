@@ -33,12 +33,4 @@
         android:visibility="gone"
         app:backgroundTint="@color/colorPrimary" />
 
-    <Button
-        android:id="@+id/b_skule"
-        android:layout_width="60sp"
-        android:layout_height="60sp"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="10dp"
-        android:background="@drawable/skule" />
-
 </android.support.design.widget.CoordinatorLayout>
