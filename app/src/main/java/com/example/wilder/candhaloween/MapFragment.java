@@ -204,6 +204,8 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
                 } else {
                     BonbonModel b1 = (BonbonModel)markerG.getTag();
                     Toast.makeText(getActivity(), b1.getName(), Toast.LENGTH_SHORT).show();
+                    singletonn.ajc2();
+                    singletonn.isGris();
                     markerG.setVisible(false);
                     return false;
                 }
