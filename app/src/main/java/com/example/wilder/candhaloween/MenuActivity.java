@@ -96,6 +96,14 @@ public class MenuActivity extends AppCompatActivity
             imageUser3.setVisibility(View.VISIBLE);
 
         }
+        ImageView imageBlood = findViewById(R.id.bloodblood);
+        imageBlood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MediaPlayer mediaPlayer = MediaPlayer.create(MenuActivity.this,R.raw.cri);
+                mediaPlayer.start();
+            }
+        });
 
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();

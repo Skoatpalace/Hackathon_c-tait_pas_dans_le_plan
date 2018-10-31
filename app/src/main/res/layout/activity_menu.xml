@@ -39,6 +39,7 @@
                 app:srcCompat="@drawable/bloodlong" />
 
             <ImageView
+                android:id="@+id/bloodblood"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:padding="10dp"
