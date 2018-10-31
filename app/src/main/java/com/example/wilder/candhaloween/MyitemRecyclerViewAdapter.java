@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,6 +23,21 @@ import java.util.List;
 public class MyitemRecyclerViewAdapter extends RecyclerView.Adapter<MyitemRecyclerViewAdapter.ViewHolder> {
 
     private ArrayList<BonbonModel> mBonbon = new ArrayList<>();
+    /*BonbonModel bonbonModel=mBonbon.get(0);
+    BonbonModel bonbonModel2=mBonbon.get(1);
+    BonbonModel bonbonModel3=mBonbon.get(2);
+    BonbonModel bonbonModel4=mBonbon.get(3);
+    BonbonModel bonbonModel5=mBonbon.get(4);
+    BonbonModel bonbonModel6=mBonbon.get(5);
+    BonbonModel bonbonModel7=mBonbon.get(6);
+    BonbonModel bonbonModel8=mBonbon.get(7);
+    BonbonModel bonbonModel9=mBonbon.get(8);
+    BonbonModel bonbonModel10=mBonbon.get(9);
+    BonbonModel bonbonModel11=mBonbon.get(10);
+    BonbonModel bonbonModel12=mBonbon.get(11);
+    BonbonModel bonbonModel13=mBonbon.get(12);
+    BonbonModel bonbonModel14=mBonbon.get(13);*/
+
 
     public MyitemRecyclerViewAdapter(ArrayList<BonbonModel> bonbon) {
 

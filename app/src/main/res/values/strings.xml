@@ -7,7 +7,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="unableCurrentLocation">ket</string>
-
+    <string name="catchbonbon">Bonbon ajouté au panier !!!</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Crocodile">Crocodile</string>
@@ -30,7 +30,13 @@
     <string name="Papillote">Papillote</string>
     <string name="Kinder_surprise">Kinder Surprise</string>
     <string name="Malabar">Malabar</string>
+    <string name="Reglisse">Réglisse</string>
 
 
     <string name="Car_en_Sac">CARenSAC</string>
+    <string name="gage1">gage1</string>
+    <string name="gage2">gage2</string>
+    <string name="gage3">gage3</string>
+    <string name="gage4">gage4</string>
+    <string name="gage5">gage5</string>
 </resources>
