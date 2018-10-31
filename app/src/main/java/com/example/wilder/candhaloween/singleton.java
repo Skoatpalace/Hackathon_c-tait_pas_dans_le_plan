@@ -7,6 +7,7 @@ class singleton {
     private boolean gris;
     private static final singleton ourInstance = new singleton();
     private ArrayList<BonbonModel> Bonbons = new ArrayList<>();
+    private boolean markervide = false;
 
     static singleton getInstance() {
         return ourInstance;
@@ -46,5 +47,13 @@ class singleton {
 
     public void setBonbons(ArrayList<BonbonModel> bonbons) {
         Bonbons = bonbons;
+    }
+
+    public boolean isMarkervide() {
+        return markervide;
+    }
+
+    public void setMarkervide(boolean markervide) {
+        this.markervide = markervide;
     }
 }

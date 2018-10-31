@@ -69,115 +69,125 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         singletonn.getBonbons();
         ArrayList<BonbonModel> mBonbon = new ArrayList<>();
 
+        if (singletonn.isMarkervide() == true) {
+            mMap = googleMap;
+            mMap.getUiSettings().setMapToolbarEnabled(false);
+            mMap.setMapStyle((MapStyleOptions.loadRawResourceStyle(getContext(), R.raw.tyle_json)));
+            moveCamera(esquirol, DEFAULT_ZOOM);
+            getLocationPermission();
+        } else {
 
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Ourson), getResources().getDrawable(R.drawable.ourson),43.59923812, 1.43892695));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Arlequin), getResources().getDrawable(R.drawable.arlequin),43.60201328, 1.44465463));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Schtroumpfs), getResources().getDrawable(R.drawable.schtrounf),43.60152454, 1.43924955));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Cola), getResources().getDrawable(R.drawable.cola),43.59839905, 1.44201096));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Langue_pik), getResources().getDrawable(R.drawable.languedechat),43.6035295, 1.44562683));
 
-        ArrayList<Gagemodel> mGage = new ArrayList<>();
-        mGage.add(new Gagemodel(getString(R.string.gage1), 43.60083768, 1.44874592, getResources().getString(R.string.gage1)));
-        mGage.add(new Gagemodel(getString(R.string.gage2), 43.604268, 1.441019, getResources().getString(R.string.gage2)));
-        mGage.add(new Gagemodel(getString(R.string.gage3), 43.614954, 1.499982, getResources().getString(R.string.gage3)));
-        //mGage.add(new Gagemodel(getString(R.string.gage4), 43.604268, 1.441019, getResources().getString(R.string.gage4)));
-        mGage.add(new Gagemodel(getString(R.string.gage4), 43.567716, 1.487043,getResources().getString(R.string.gage4)));
+            mBonbon.add(new BonbonModel(getResources().getString(R.string.Ourson), getResources().getDrawable(R.drawable.ourson), 43.59923812, 1.43892695));
+            mBonbon.add(new BonbonModel(getResources().getString(R.string.Arlequin), getResources().getDrawable(R.drawable.arlequin), 43.60201328, 1.44465463));
+            mBonbon.add(new BonbonModel(getResources().getString(R.string.Schtroumpfs), getResources().getDrawable(R.drawable.schtrounf), 43.60152454, 1.43924955));
+            mBonbon.add(new BonbonModel(getResources().getString(R.string.Cola), getResources().getDrawable(R.drawable.cola), 43.59839905, 1.44201096));
+            mBonbon.add(new BonbonModel(getResources().getString(R.string.Langue_pik), getResources().getDrawable(R.drawable.languedechat), 43.6035295, 1.44562683));
 
-        mMap = googleMap;
-        mMap.getUiSettings().setMapToolbarEnabled(false);
-        mMap.setMapStyle((MapStyleOptions.loadRawResourceStyle(getContext(), R.raw.tyle_json)));
-        moveCamera(esquirol, DEFAULT_ZOOM);
-        getLocationPermission();
-        if (mLocationPermissionsGranted) {
-            getDeviceLocation();
-            if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)
-                    != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION)
-                    != PackageManager.PERMISSION_GRANTED) {
-                mMap.setMyLocationEnabled(true);
+            ArrayList<Gagemodel> mGage = new ArrayList<>();
+            mGage.add(new Gagemodel(getString(R.string.gage1), 43.60083768, 1.44874592, getResources().getString(R.string.gage1)));
+            mGage.add(new Gagemodel(getString(R.string.gage2), 43.604268, 1.441019, getResources().getString(R.string.gage2)));
+            mGage.add(new Gagemodel(getString(R.string.gage3), 43.614954, 1.499982, getResources().getString(R.string.gage3)));
+            //mGage.add(new Gagemodel(getString(R.string.gage4), 43.604268, 1.441019, getResources().getString(R.string.gage4)));
+            mGage.add(new Gagemodel(getString(R.string.gage4), 43.567716, 1.487043, getResources().getString(R.string.gage4)));
+
+            mMap = googleMap;
+            mMap.getUiSettings().setMapToolbarEnabled(false);
+            mMap.setMapStyle((MapStyleOptions.loadRawResourceStyle(getContext(), R.raw.tyle_json)));
+            moveCamera(esquirol, DEFAULT_ZOOM);
+            getLocationPermission();
+            if (mLocationPermissionsGranted) {
+                getDeviceLocation();
+                if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)
+                        != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    mMap.setMyLocationEnabled(true);
+                }
+                BonbonModel bonbonModel = mBonbon.get(0);
+                Gagemodel gagemodel = mGage.get(0);
+                Gagemodel gagemodel2 = mGage.get(1);
+                Gagemodel gagemodel3 = mGage.get(2);
+                Gagemodel gagemodel4 = mGage.get(3);
+                BonbonModel bonbonModel2 = mBonbon.get(1);
+                BonbonModel bonbonModel3 = mBonbon.get(2);
+                BonbonModel bonbonModel4 = mBonbon.get(3);
+                BonbonModel bonbonModel5 = mBonbon.get(4);
+
+
+                Marker markerB = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel.getLatitude(), bonbonModel.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+                Marker markerB2 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel2.getLatitude(), bonbonModel2.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+                Marker markerB3 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel3.getLatitude(), bonbonModel3.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+                Marker markerB4 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel4.getLatitude(), bonbonModel4.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+                Marker markerB5 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel5.getLatitude(), bonbonModel5.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+                markerB.setTag(bonbonModel);
+                markerB2.setTag(bonbonModel2);
+                markerB3.setTag(bonbonModel3);
+                markerB4.setTag(bonbonModel4);
+                markerB5.setTag(bonbonModel5);
+                Marker markerG = mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel.getLatitude(), gagemodel.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+                Marker markerG2 = mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel2.getLatitude(), gagemodel2.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+                Marker markerG3 = mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel3.getLatitude(), gagemodel3.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+                Marker markerG4 = mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel4.getLatitude(), gagemodel4.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+                markerG.setTag(gagemodel);
+                markerG2.setTag(gagemodel2);
+                markerG3.setTag(gagemodel3);
+                markerG4.setTag(gagemodel4);
+                //Marker markerG= mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel.getLatitude(),gagemodel.getLongitude())));
             }
-            BonbonModel bonbonModel = mBonbon.get(0);
-            Gagemodel gagemodel = mGage.get(0);
-            Gagemodel gagemodel2 = mGage.get(1);
-            Gagemodel gagemodel3 = mGage.get(2);
-            Gagemodel gagemodel4 = mGage.get(3);
-            BonbonModel bonbonModel2 = mBonbon.get(1);
-            BonbonModel bonbonModel3 = mBonbon.get(2);
-            BonbonModel bonbonModel4 = mBonbon.get(3);
-            BonbonModel bonbonModel5 = mBonbon.get(4);
 
 
-            Marker markerB = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel.getLatitude(), bonbonModel.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-            Marker markerB2 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel2.getLatitude(), bonbonModel2.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-            Marker markerB3 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel3.getLatitude(), bonbonModel3.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-            Marker markerB4 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel4.getLatitude(), bonbonModel4.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-            Marker markerB5 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel5.getLatitude(), bonbonModel5.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-            markerB.setTag(bonbonModel);
-            markerB2.setTag(bonbonModel2);
-            markerB3.setTag(bonbonModel3);
-            markerB4.setTag(bonbonModel4);
-            markerB5.setTag(bonbonModel5);
-            Marker markerG = mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel.getLatitude(), gagemodel.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-            Marker markerG2 = mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel2.getLatitude(), gagemodel2.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-            Marker markerG3 = mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel3.getLatitude(), gagemodel3.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-            Marker markerG4 = mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel4.getLatitude(), gagemodel4.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-            markerG.setTag(gagemodel);
-            markerG2.setTag(gagemodel2);
-            markerG3.setTag(gagemodel3);
-            markerG4.setTag(gagemodel4);
-            //Marker markerG= mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel.getLatitude(),gagemodel.getLongitude())));
+            mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                @Override
+                public boolean onMarkerClick(Marker markerG) {
+
+                    Object stuff = markerG.getTag();
+                    if (stuff == null) {
+                        return false;
+                    }
+                    if (stuff.getClass() == Gagemodel.class) {
+
+                        Gagemodel g1 = (Gagemodel) markerG.getTag();
+                        MediaPlayer mediaPlayer = MediaPlayer.create(getActivity(), R.raw.piano);
+                        mediaPlayer.start();
+                        final TextView textviewinfo = (TextView) getView().findViewById(R.id.tv_cage1);
+                        final ImageView ivNoir = getView().findViewById(R.id.iv_splashscreen);
+                        final ImageView ivPumpkin = getView().findViewById(R.id.iv_pumpkin);
+                        textviewinfo.setVisibility(View.VISIBLE);
+                        ivNoir.setVisibility(View.VISIBLE);
+                        ivPumpkin.setVisibility(View.VISIBLE);
+                        ivPumpkin.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.tourne_infini));
+                        textviewinfo.setText(g1.getGage());
+
+                        ivNoir.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                singletonn.ajc1();
+                                textviewinfo.setVisibility(View.INVISIBLE);
+                                ivNoir.setVisibility(View.INVISIBLE);
+                                ivPumpkin.clearAnimation();
+                                ivPumpkin.setVisibility(View.INVISIBLE);
+                            }
+
+                        });
+                        markerG.setVisible(false);
+                    } else {
+                        BonbonModel b1 = (BonbonModel) markerG.getTag();
+                        MediaPlayer mediaPlayerB = MediaPlayer.create(getActivity(), R.raw.papercandy);
+                        mediaPlayerB.start();
+                        Toast.makeText(getActivity(), b1.getName(), Toast.LENGTH_SHORT).show();
+                        singletonn.ajc2();
+                        singletonn.setGris(false);
+                        markerG.setVisible(false);
+                        singletonn.setMarkervide(true);
+                        return false;
+                    }
+
+                    return false;
+                    // Toast.makeText(getActivity(), R.string.catchbonbon, Toast.LENGTH_SHORT)
+
+                }
+            });
         }
-
-
-        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-            @Override
-            public boolean onMarkerClick(Marker markerG) {
-
-                Object stuff = markerG.getTag();
-                if (stuff == null) {
-                    return false;
-                }
-                if (stuff.getClass() == Gagemodel.class) {
-
-                    Gagemodel g1=(Gagemodel)markerG.getTag();
-                    MediaPlayer mediaPlayer = MediaPlayer.create(getActivity(),R.raw.piano);
-                    mediaPlayer.start();
-                    final TextView textviewinfo = (TextView) getView().findViewById(R.id.tv_cage1);
-                    final ImageView ivNoir = getView().findViewById(R.id.iv_splashscreen);
-                    final ImageView ivPumpkin = getView().findViewById(R.id.iv_pumpkin);
-                    textviewinfo.setVisibility(View.VISIBLE);
-                    ivNoir.setVisibility(View.VISIBLE);
-                    ivPumpkin.setVisibility(View.VISIBLE);
-                    ivPumpkin.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.tourne_infini));
-                    textviewinfo.setText(g1.getGage());
-
-                    ivNoir.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            singletonn.ajc1();
-                            textviewinfo.setVisibility(View.INVISIBLE);
-                            ivNoir.setVisibility(View.INVISIBLE);
-                            ivPumpkin.clearAnimation();
-                            ivPumpkin.setVisibility(View.INVISIBLE);
-                        }
-
-                    });
-                    markerG.setVisible(false);
-                } else {
-                    BonbonModel b1 = (BonbonModel)markerG.getTag();
-                    MediaPlayer mediaPlayerB = MediaPlayer.create(getActivity(),R.raw.papercandy);
-                    mediaPlayerB.start();
-                    Toast.makeText(getActivity(), b1.getName(), Toast.LENGTH_SHORT).show();
-                    singletonn.ajc2();
-                    singletonn.setGris(false);
-                    markerG.setVisible(false);
-                    return false;
-                }
-
-                return false;
-                // Toast.makeText(getActivity(), R.string.catchbonbon, Toast.LENGTH_SHORT)
-
-            }
-        });
 
     }
 
