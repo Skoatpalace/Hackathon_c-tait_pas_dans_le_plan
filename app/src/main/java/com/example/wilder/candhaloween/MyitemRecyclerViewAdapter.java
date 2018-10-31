@@ -20,7 +20,7 @@ import java.util.List;
  * specified {@link OnListFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
-public class MyitemRecyclerViewAdapter  extends ArrayAdapter<BonbonModel> {
+public class MyitemRecyclerViewAdapter extends RecyclerView.Adapter<MyitemRecyclerViewAdapter.ViewHolder> {
 
     private ArrayList<BonbonModel> mBonbon = new ArrayList<>();
     /*BonbonModel bonbonModel=mBonbon.get(0);
@@ -39,28 +39,25 @@ public class MyitemRecyclerViewAdapter  extends ArrayAdapter<BonbonModel> {
     BonbonModel bonbonModel14=mBonbon.get(13);*/
 
 
-    public MyitemRecyclerViewAdapter (Context context, ArrayList<BonbonModel> list) {
+    public MyitemRecyclerViewAdapter(ArrayList<BonbonModel> bonbon) {
 
-
-        super(context, 0, list);
-        mBonbon=list;
-
+        mBonbon = bonbon;
     }
-
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView ivBonbon;
+        TextView tvNomBonbon;
 
         public ViewHolder(View v) {
             super(v);
             this.ivBonbon = v.findViewById(R.id.iv_bonbon);
+            this.tvNomBonbon = v.findViewById(R.id.tv_bonbon);
         }
     }
 
-
+    @Override
     public MyitemRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
 
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_item, parent, false);
@@ -68,17 +65,16 @@ public class MyitemRecyclerViewAdapter  extends ArrayAdapter<BonbonModel> {
         return new ViewHolder(view);
     }
 
-   // @Override
+    @Override
     public void onBindViewHolder(final MyitemRecyclerViewAdapter.ViewHolder holder, int position) {
 
-
-
-       //bonbonModel = mBonbon.get(position);
+        final BonbonModel bonbonModel = mBonbon.get(position);
         //TODO: ajout images
         //holder.ivBonbon.setImageDrawable(mBonbon.);
+        holder.tvNomBonbon.setText(bonbonModel.getName());
     }
 
-
+    @Override
     public int getItemCount() {
 
         return mBonbon.size();

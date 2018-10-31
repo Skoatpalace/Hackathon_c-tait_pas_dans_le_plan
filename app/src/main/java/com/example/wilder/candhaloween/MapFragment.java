@@ -3,65 +3,20 @@ package com.example.wilder.candhaloween;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Point;
 import android.location.Location;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.view.Display;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ListPopupWindow;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
 import android.widget.Toast;
 
-import android.Manifest;
-import android.annotation.SuppressLint;
-import android.content.ClipData;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Point;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import android.net.Uri;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Display;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.ListPopupWindow;
-import android.widget.PopupWindow;
-import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -70,92 +25,70 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Collections;
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.gms.maps.model.MapStyleOptions;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+import pl.droidsonroids.gif.GifImageView;
+
 import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 
 public class MapFragment extends android.support.v4.app.Fragment implements OnMapReadyCallback {
 
+    final static int POPUP_POSITION_X = 0;
+    final static int POPUP_POSITION_Y = 0;
     private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
     private static final String COURSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
+    singleton singletonn = singleton.getInstance();
+    // private static final String TAG = MapsFragment.class.getSimpleName();
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
     private static final float DEFAULT_ZOOM = 17f;
-
-   // private static final String TAG = MapsFragment.class.getSimpleName();
-
     private LatLng esquirol = new LatLng(43.600346, 1.443844);
-
-
     //vars
     private Boolean mLocationPermissionsGranted = false;
     private GoogleMap mMap;
     private FusedLocationProviderClient mFusedLocationProviderClient;
-
-    final static int POPUP_POSITION_X = 0;
-    final static int POPUP_POSITION_Y = 0;
+    private Marker markerb;
     private PopupWindow popUp;
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         ArrayList<BonbonModel> mBonbon = new ArrayList<>();
 
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Crocodile), "@drawable/crocodilebonbno",43.600346, 1.443844));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Tagada), null,43.700998, 1.489429));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Marshmallow), null,42.986370, 1.086368));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Dragibus), null,42.600346, 1.657899));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Ourson), null,42.600346, 1.453197));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Arlequin), null,41.600346, 1.325797));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Oeuf_au_plat), null,41.600346, 1.247864));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Schtroumpfs), null,41.600346, 1.468988));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Carambar), null,41.874795, 1.543278));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Cola), null,41.600346, 1.986432));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Roudoudou), null,41.366438, 1.652399));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Langue_pik), null,42.600346, 1.474789));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Banane), null,41.368976, 1.226799));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Boule_de_mammouth), null,41.576659, 1.653468));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Skittles), null,43.878687, 1.765346));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.M_Ms), null,43.135799, 1.65446));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Papillote), null,42.687674, 1.653457));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Kinder_surprise), null,43.134689, 1.453467));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Car_en_Sac), null,43.457689, 1.453457));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Crocodile),null, 43.606489, 1.444153));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Tagada), null, 43.592190, 1.441698));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Marshmallow), null, 43.594278, 1.444409));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Dragibus), null, 43.59923812, 1.43892695));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Ourson), null, 43.60201328, 1.44465463));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Arlequin), null, 43.59388259, 1.4508802));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Oeuf_au_plat), null, 43.60152454, 1.43924955));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Schtroumpfs), null, 43.60400284, 1.432515));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Carambar), null, 43.59839905, 1.44201096));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Cola), null, 43.60572688, 1.45061624));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Roudoudou), null, 43.6035295, 1.44562683));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Langue_pik), null, 43.59147733, 1.440788));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Banane), null, 43.60083768, 1.44874592));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Boule_de_mammouth), null, 43.60090453, 1.43445538));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Skittles), null, 43.60363231, 1.43805026));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.M_Ms), null, 43.59882815, 1.4413074));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Papillote), null, 43.59431834, 1.43704105));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Kinder_surprise), null, 43.6062955, 1.43540997));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Car_en_Sac), null, 43.5974498, 1.44651802));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Reglisse), null, 43.59647033, 1.44742451));
 
-        ArrayList<Gagemodel>mGage= new ArrayList<>();
-        mGage.add(new Gagemodel(getString(R.string.gage1),43.606838,	1.465845));
-        mGage.add(new Gagemodel(getString(R.string.gage2),43.604268,	1.441019));
-        mGage.add(new Gagemodel(getString(R.string.gage3),43.614954,1.499982));
-        mGage.add(new Gagemodel(getString(R.string.gage4),43.604268,	1.441019));
-        mGage.add(new Gagemodel(getString(R.string.gage5),43.567716,	1.487043));
+        ArrayList<Gagemodel> mGage = new ArrayList<>();
+        mGage.add(new Gagemodel(getString(R.string.gage1), 43.606838, 1.465845));
+        mGage.add(new Gagemodel(getString(R.string.gage2), 43.604268, 1.441019));
+        mGage.add(new Gagemodel(getString(R.string.gage3), 43.614954, 1.499982));
+        mGage.add(new Gagemodel(getString(R.string.gage4), 43.604268, 1.441019));
+        mGage.add(new Gagemodel(getString(R.string.gage5), 43.567716, 1.487043));
 
         mMap = googleMap;
         mMap.setMapStyle((MapStyleOptions.loadRawResourceStyle(getContext(), R.raw.tyle_json)));
@@ -168,25 +101,25 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
                     != PackageManager.PERMISSION_GRANTED) {
                 mMap.setMyLocationEnabled(true);
             }
-            BonbonModel bonbonModel=mBonbon.get(0);
-            Gagemodel gagemodel =mGage.get(0);
-            Gagemodel gagemodel2 =mGage.get(1);
-            Gagemodel gagemodel3 =mGage.get(2);
-            Gagemodel gagemodel4 =mGage.get(3);
-            Gagemodel gagemodel5 =mGage.get(4);
-            BonbonModel bonbonModel2=mBonbon.get(1);
-            BonbonModel bonbonModel3=mBonbon.get(2);
-            BonbonModel bonbonModel4=mBonbon.get(3);
-            BonbonModel bonbonModel5=mBonbon.get(4);
-            BonbonModel bonbonModel6=mBonbon.get(5);
-            BonbonModel bonbonModel7=mBonbon.get(6);
-            BonbonModel bonbonModel8=mBonbon.get(7);
-            BonbonModel bonbonModel9=mBonbon.get(8);
-            BonbonModel bonbonModel10=mBonbon.get(9);
-            BonbonModel bonbonModel11=mBonbon.get(10);
-            BonbonModel bonbonModel12=mBonbon.get(11);
-            BonbonModel bonbonModel13=mBonbon.get(12);
-            BonbonModel bonbonModel14=mBonbon.get(13);
+            BonbonModel bonbonModel = mBonbon.get(0);
+            Gagemodel gagemodel = mGage.get(0);
+            Gagemodel gagemodel2 = mGage.get(1);
+            Gagemodel gagemodel3 = mGage.get(2);
+            Gagemodel gagemodel4 = mGage.get(3);
+            Gagemodel gagemodel5 = mGage.get(4);
+            BonbonModel bonbonModel2 = mBonbon.get(1);
+            BonbonModel bonbonModel3 = mBonbon.get(2);
+            BonbonModel bonbonModel4 = mBonbon.get(3);
+            BonbonModel bonbonModel5 = mBonbon.get(4);
+            BonbonModel bonbonModel6 = mBonbon.get(5);
+            BonbonModel bonbonModel7 = mBonbon.get(6);
+            BonbonModel bonbonModel8 = mBonbon.get(7);
+            BonbonModel bonbonModel9 = mBonbon.get(8);
+            BonbonModel bonbonModel10 = mBonbon.get(9);
+            BonbonModel bonbonModel11 = mBonbon.get(10);
+            BonbonModel bonbonModel12 = mBonbon.get(11);
+            BonbonModel bonbonModel13 = mBonbon.get(12);
+            BonbonModel bonbonModel14 = mBonbon.get(13);
 
 
             Marker marker = mMap.addMarker(new MarkerOptions().position(esquirol).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
@@ -204,108 +137,86 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
             Marker markerB12 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel12.getLatitude(), bonbonModel12.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
             Marker markerB13 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel13.getLatitude(), bonbonModel13.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
             Marker markerB14 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel14.getLatitude(), bonbonModel14.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-           // Marker markerB = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel.getLatitude(), bonbonModel.getLongitude())));
+            // Marker markerB = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel.getLatitude(), bonbonModel.getLongitude())));
 
-            Marker markerG= mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel.getLatitude(),gagemodel.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-            Marker markerG2= mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel2.getLatitude(),gagemodel2.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-            Marker markerG3= mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel3.getLatitude(),gagemodel3.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-            Marker markerG4= mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel4.getLatitude(),gagemodel4.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+            Marker markerG = mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel.getLatitude(), gagemodel.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+            Marker markerG2 = mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel2.getLatitude(), gagemodel2.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+            Marker markerG3 = mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel3.getLatitude(), gagemodel3.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+            Marker markerG4 = mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel4.getLatitude(), gagemodel4.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
 
             //Marker markerG= mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel.getLatitude(),gagemodel.getLongitude())));
         }
 
+
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
-            public boolean onMarkerClick(Marker marker) {
-                ArrayList<Gagemodel> mGage = new ArrayList<>();
-                mGage.add(new Gagemodel(getString(R.string.gage1), 43.606838, 1.465845));
-                mGage.add(new Gagemodel(getString(R.string.gage2), 43.604268, 1.441019));
-                mGage.add(new Gagemodel(getString(R.string.gage3), 43.614954, 1.499982));
-                mGage.add(new Gagemodel(getString(R.string.gage4), 43.604268, 1.441019));
-                mGage.add(new Gagemodel(getString(R.string.gage5), 43.567716, 1.487043));
-                Gagemodel gagemodel = mGage.get(0);
-                Gagemodel gagemodel2 = mGage.get(1);
-                Gagemodel gagemodel3 = mGage.get(2);
-                Gagemodel gagemodel4 = mGage.get(3);
-                Gagemodel gagemodel5 = mGage.get(4);
+            public boolean onMarkerClick(Marker markerG) {
+                markerG.getTag();
+                final TextView textviewinfo = (TextView) getView().findViewById(R.id.tv_cage1);
+                textviewinfo.setVisibility(View.VISIBLE);
+                textviewinfo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        singletonn.ajc1();
+                        textviewinfo.setVisibility(View.INVISIBLE);
+                    }
+                });
+                return false;
+                // Toast.makeText(getActivity(), R.string.catchbonbon, Toast.LENGTH_SHORT)
 
-                Marker markerG = mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel.getLatitude(), gagemodel.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-                Marker markerG2 = mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel2.getLatitude(), gagemodel2.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-                Marker markerG3 = mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel3.getLatitude(), gagemodel3.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-                Marker markerG4 = mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel4.getLatitude(), gagemodel4.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-               //Marker markerG5 = mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel5.getLatitude(), gagemodel5.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-
-                if (marker == markerG) {
-
-                    final TextView textviewinfo = (TextView) getView().findViewById(R.id.tv_cage1);
-                    textviewinfo.setVisibility(View.VISIBLE);
-                    textviewinfo.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            textviewinfo.setVisibility(View.INVISIBLE);
-
-                        }
-                    });
-                    // Toast.makeText(getActivity(), R.string.catchbonbon, Toast.LENGTH_SHORT)
-
-                }
-                if (marker == markerG2) {
-
-                    final TextView textviewinfo = (TextView) getView().findViewById(R.id.tv_cage2);
-                    textviewinfo.setVisibility(View.VISIBLE);
-                    textviewinfo.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            textviewinfo.setVisibility(View.INVISIBLE);
-                        }
-                    });
-                    // Toast.makeText(getActivity(), R.string.catchbonbon, Toast.LENGTH_SHORT)
-
-                }
-                if (marker == markerG3) {
-
-                    final TextView textviewinfo = (TextView) getView().findViewById(R.id.tv_cage3);
-                    textviewinfo.setVisibility(View.VISIBLE);
-                    textviewinfo.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            textviewinfo.setVisibility(View.INVISIBLE);
-                        }
-                    });
-                    // Toast.makeText(getActivity(), R.string.catchbonbon, Toast.LENGTH_SHORT)
-
-                }
-                if (marker == markerG4) {
-
-                    final TextView textviewinfo = (TextView) getView().findViewById(R.id.tv_cage4);
-                    textviewinfo.setVisibility(View.VISIBLE);
-                    textviewinfo.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            textviewinfo.setVisibility(View.INVISIBLE);
-                        }
-                    });
-                    // Toast.makeText(getActivity(), R.string.catchbonbon, Toast.LENGTH_SHORT)
-
-                }
-
+            }
+        });
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker markerG2) {
+                markerG2.getTag();
+                final TextView textviewinfo = (TextView) getView().findViewById(R.id.tv_cage2);
+                textviewinfo.setVisibility(View.VISIBLE);
+                textviewinfo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        singletonn.ajc1();
+                        textviewinfo.setVisibility(View.INVISIBLE);
+                    }
+                });
                 return false;
             }
         });
-        }
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker markerG3) {
+                markerG3.getTag();
+                final TextView textviewinfo3 = (TextView) getView().findViewById(R.id.tv_cage3);
+                textviewinfo3.setVisibility(View.VISIBLE);
+                textviewinfo3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        singletonn.ajc1();
+                        textviewinfo3.setVisibility(View.INVISIBLE);
+                    }
+                });
+                return false;
+            }
+        });
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker markerG4) {
+                markerG4.getTag();
+                final TextView textviewinfo4 = (TextView) getView().findViewById(R.id.tv_cage4);
+                textviewinfo4.setVisibility(View.VISIBLE);
+                textviewinfo4.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        singletonn.ajc1();
+                        textviewinfo4.setVisibility(View.INVISIBLE);
+                    }
+                });
+                return false;
+            }
+        });
 
 
-
-
-
-
-
-
-
-
-
-
-
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -321,6 +232,20 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         //TODO: A faire démarrer quand click sur trick + visible
         //ImageView ivPumpkin = (ImageView) getActivity().findViewById(R.id.iv_pumpkin);
         //ivPumpkin.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.tourne_infini));
+
+        //#SPIDER
+        final GifImageView gifSpider = getActivity().findViewById(R.id.gif_spider);
+        gifSpider.setVisibility(View.INVISIBLE);
+        new Handler().postDelayed(new Runnable(){
+            public void run() {
+                gifSpider.setVisibility(View.VISIBLE);
+            }
+        }, 10000);
+        new Handler().postDelayed(new Runnable(){
+            public void run() {
+                gifSpider.setVisibility(View.INVISIBLE);
+            }
+        }, 14000);
     }
 
     @Override
@@ -395,48 +320,6 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
             }
         }
     }
-    public LatLng getRandomLocation(LatLng point, int radius) {
-
-        List<LatLng> randomPoints = new ArrayList<>();
-        List<Float> randomDistances = new ArrayList<>();
-        Location myLocation = new Location("");
-        myLocation.setLatitude(point.latitude);
-        myLocation.setLongitude(point.longitude);
-
-        //This is to generate 10 random points
-        for (int i = 0; i < 10; i++) {
-            double x0 = point.latitude;
-            double y0 = point.longitude;
-
-            Random random = new Random();
-
-            // Convert radius from meters to degrees
-            double radiusInDegrees = radius / 111000f;
-
-            double u = random.nextDouble();
-            double v = random.nextDouble();
-            double w = radiusInDegrees * Math.sqrt(u);
-            double t = 2 * Math.PI * v;
-            double x = w * Math.cos(t);
-            double y = w * Math.sin(t);
-
-            // Adjust the x-coordinate for the shrinking of the east-west distances
-            double new_x = x / Math.cos(y0);
-
-            double foundLatitude = new_x + x0;
-            double foundLongitude = y + y0;
-            LatLng randomLatLng = new LatLng(foundLatitude, foundLongitude);
-            randomPoints.add(randomLatLng);
-            Location l1 = new Location("");
-            l1.setLatitude(randomLatLng.latitude);
-            l1.setLongitude(randomLatLng.longitude);
-            randomDistances.add(l1.distanceTo(myLocation));
-        }
-        //Get nearest point to the centre
-        int indexOfNearestPointToCentre = randomDistances.indexOf(Collections.min(randomDistances));
-        return randomPoints.get(indexOfNearestPointToCentre);
-    }
-
-
-
 }
+
+

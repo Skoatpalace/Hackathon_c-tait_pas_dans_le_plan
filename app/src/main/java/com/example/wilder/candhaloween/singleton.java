@@ -2,6 +2,7 @@ package com.example.wilder.candhaloween;
 
 class singleton {
     private int compteur;
+    private boolean gris;
     private static final singleton ourInstance = new singleton();
 
     static singleton getInstance() {
@@ -20,6 +21,10 @@ class singleton {
 
     public int getCompteur() {
         return compteur;
+    }
+
+    public boolean isGris() {
+        return gris;
     }
 
 }

@@ -17,16 +17,19 @@ public class BonbonModel {
     private  double longitude;
 
 
+
     public BonbonModel(String name, String photo, double latitude, double longitude) {
 
         this.name = name;
         this.photo = photo;
         this.latitude = latitude;
-        this.longitude=longitude;
+        this.longitude = longitude;
     }
 
     public BonbonModel() {
     }
+
+
 
     public  double getLatitude() {
         return latitude;
