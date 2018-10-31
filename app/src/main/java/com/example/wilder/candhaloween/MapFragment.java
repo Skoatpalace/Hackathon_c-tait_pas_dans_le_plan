@@ -190,7 +190,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
                 if (stuff.getClass() == Gagemodel.class) {
 
                     Gagemodel g1=(Gagemodel)markerG.getTag();
-                    MediaPlayer mediaPlayer = MediaPlayer.create(getActivity(),R.raw.piano);
+                    MediaPlayer mediaPlayer = MediaPlayer.create(getActivity(),R.raw.pianocreepy);
                     mediaPlayer.start();
                     final TextView textviewinfo = (TextView) getView().findViewById(R.id.tv_cage1);
                     final ImageView ivNoir = getView().findViewById(R.id.iv_splashscreen);
