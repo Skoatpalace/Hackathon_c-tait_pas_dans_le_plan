@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -31,6 +32,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+
+import pl.droidsonroids.gif.GifImageView;
+
+import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 
 public class MapFragment extends android.support.v4.app.Fragment implements OnMapReadyCallback {
 
@@ -219,6 +227,20 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         //TODO: A faire démarrer quand click sur trick + visible
         //ImageView ivPumpkin = (ImageView) getActivity().findViewById(R.id.iv_pumpkin);
         //ivPumpkin.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.tourne_infini));
+
+        //#SPIDER
+        final GifImageView gifSpider = getActivity().findViewById(R.id.gif_spider);
+        gifSpider.setVisibility(View.INVISIBLE);
+        new Handler().postDelayed(new Runnable(){
+            public void run() {
+                gifSpider.setVisibility(View.VISIBLE);
+            }
+        }, 10000);
+        new Handler().postDelayed(new Runnable(){
+            public void run() {
+                gifSpider.setVisibility(View.INVISIBLE);
+            }
+        }, 14000);
     }
 
     @Override
