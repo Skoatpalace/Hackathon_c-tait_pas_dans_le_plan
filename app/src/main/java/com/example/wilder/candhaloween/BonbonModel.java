@@ -1,5 +1,6 @@
 package com.example.wilder.candhaloween;
 
+import android.graphics.drawable.Drawable;
 import android.location.Location;
 
 import com.google.android.gms.maps.model.LatLng;
@@ -12,13 +13,13 @@ import java.util.Random;
 public class BonbonModel {
 
     private String name;
-    private String photo;
+    private Drawable photo;
     private double latitude;
     private  double longitude;
 
 
 
-    public BonbonModel(String name, String photo, double latitude, double longitude) {
+    public BonbonModel(String name, Drawable photo, double latitude, double longitude) {
 
         this.name = name;
         this.photo = photo;
@@ -55,11 +56,11 @@ public class BonbonModel {
         this.name = name;
     }
 
-    public String getPhoto() {
+    public Drawable getPhoto() {
         return photo;
     }
 
-    public void setPhoto(String photo) {
+    public void setPhoto(Drawable photo) {
         this.photo = photo;
     }
 

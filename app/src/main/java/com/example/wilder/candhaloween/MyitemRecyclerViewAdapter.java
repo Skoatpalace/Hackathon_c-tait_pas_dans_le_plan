@@ -70,7 +70,7 @@ public class MyitemRecyclerViewAdapter extends RecyclerView.Adapter<MyitemRecycl
 
         final BonbonModel bonbonModel = mBonbon.get(position);
         //TODO: ajout images
-        //holder.ivBonbon.setImageDrawable(mBonbon.);
+        holder.ivBonbon.setImageDrawable(bonbonModel.getPhoto());
         holder.tvNomBonbon.setText(bonbonModel.getName());
     }
 

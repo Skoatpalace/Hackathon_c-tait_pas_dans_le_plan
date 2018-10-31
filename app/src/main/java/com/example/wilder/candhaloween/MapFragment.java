@@ -10,6 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,26 +63,24 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
     public void onMapReady(GoogleMap googleMap) {
         ArrayList<BonbonModel> mBonbon = new ArrayList<>();
 
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Crocodile), null, 43.606489, 1.444153));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Tagada), null, 43.592190, 1.441698));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Marshmallow), null, 43.594278, 1.444409));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Dragibus), null, 43.59923812, 1.43892695));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Ourson), null, 43.60201328, 1.44465463));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Arlequin), null, 43.59388259, 1.4508802));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Oeuf_au_plat), null, 43.60152454, 1.43924955));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Schtroumpfs), null, 43.60400284, 1.432515));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Carambar), null, 43.59839905, 1.44201096));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Cola), null, 43.60572688, 1.45061624));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Roudoudou), null, 43.6035295, 1.44562683));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Langue_pik), null, 43.59147733, 1.440788));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Banane), null, 43.60083768, 1.44874592));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Boule_de_mammouth), null, 43.60090453, 1.43445538));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Skittles), null, 43.60363231, 1.43805026));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.M_Ms), null, 43.59882815, 1.4413074));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Papillote), null, 43.59431834, 1.43704105));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Kinder_surprise), null, 43.6062955, 1.43540997));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Car_en_Sac), null, 43.5974498, 1.44651802));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Reglisse), null, 43.59647033, 1.44742451));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Crocodile), getResources().getDrawable(R.drawable.crocodilebonbno),43.600346, 1.443844));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Tagada), getResources().getDrawable(R.drawable.tagadabonbon),43.700998, 1.489429));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Marshmallow), getResources().getDrawable(R.drawable.marshmallow),42.986370, 1.086368));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Dragibus), getResources().getDrawable(R.drawable.dragibus),42.600346, 1.657899));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Ourson), getResources().getDrawable(R.drawable.ourson),42.600346, 1.453197));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Arlequin), getResources().getDrawable(R.drawable.arlequin),41.600346, 1.325797));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Oeuf_au_plat), getResources().getDrawable(R.drawable.oeuf),41.600346, 1.247864));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Schtroumpfs), getResources().getDrawable(R.drawable.schtrounf),41.600346, 1.468988));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Carambar), getResources().getDrawable(R.drawable.carambar),41.874795, 1.543278));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Cola), getResources().getDrawable(R.drawable.cola),41.600346, 1.986432));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Roudoudou), getResources().getDrawable(R.drawable.roudoudou),41.366438, 1.652399));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Langue_pik), getResources().getDrawable(R.drawable.languedechat),42.600346, 1.474789));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Banane), getResources().getDrawable(R.drawable.bananebonbon),41.368976, 1.226799));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Boule_de_mammouth), getResources().getDrawable(R.drawable.mamouthbonbon),41.576659, 1.653468));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Skittles), getResources().getDrawable(R.drawable.skittlesbonbon),43.878687, 1.765346));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.M_Ms), getResources().getDrawable(R.drawable.mnmbonbon),43.135799, 1.65446));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Kinder_surprise), getResources().getDrawable(R.drawable.kindersurprisebonbon),43.134689, 1.453467));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Car_en_Sac), getResources().getDrawable(R.drawable.pilsbonbon),43.457689, 1.453457));
 
         ArrayList<Gagemodel> mGage = new ArrayList<>();
         mGage.add(new Gagemodel(getString(R.string.gage1), 43.606838, 1.465845));
@@ -231,16 +230,25 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         //#SPIDER
         final GifImageView gifSpider = getActivity().findViewById(R.id.gif_spider);
         gifSpider.setVisibility(View.INVISIBLE);
-        new Handler().postDelayed(new Runnable(){
+
+
+        final Handler handler = new Handler();
+
+        Runnable runnableCode = new Runnable() {
+            @Override
             public void run() {
+                Log.d("Handlers", "Called on main thread");
                 gifSpider.setVisibility(View.VISIBLE);
+                new Handler().postDelayed(new Runnable(){
+                    public void run() {
+                        gifSpider.setVisibility(View.INVISIBLE);
+                    }
+                }, 4020);
+                handler.postDelayed(this, 30000);
             }
-        }, 10000);
-        new Handler().postDelayed(new Runnable(){
-            public void run() {
-                gifSpider.setVisibility(View.INVISIBLE);
-            }
-        }, 14000);
+        };
+// Start the initial runnable task by posting through the handler
+        handler.post(runnableCode);
     }
 
     @Override
