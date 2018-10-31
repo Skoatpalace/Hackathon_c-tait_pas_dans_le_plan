@@ -46,7 +46,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
     final static int POPUP_POSITION_Y = 0;
     private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
     private static final String COURSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
-
+    singleton singletonn = singleton.getInstance();
     // private static final String TAG = MapsFragment.class.getSimpleName();
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
     private static final float DEFAULT_ZOOM = 17f;
@@ -62,7 +62,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
     public void onMapReady(GoogleMap googleMap) {
         ArrayList<BonbonModel> mBonbon = new ArrayList<>();
 
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Crocodile), null, 43.606489, 1.444153));
+        mBonbon.add(new BonbonModel(getResources().getString(R.string.Crocodile),null, 43.606489, 1.444153));
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Tagada), null, 43.592190, 1.441698));
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Marshmallow), null, 43.594278, 1.444409));
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Dragibus), null, 43.59923812, 1.43892695));
@@ -157,6 +157,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
                 textviewinfo.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        singletonn.ajc1();
                         textviewinfo.setVisibility(View.INVISIBLE);
                     }
                 });
@@ -174,6 +175,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
                 textviewinfo.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        singletonn.ajc1();
                         textviewinfo.setVisibility(View.INVISIBLE);
                     }
                 });
@@ -184,12 +186,13 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
             @Override
             public boolean onMarkerClick(Marker markerG3) {
                 markerG3.getTag();
-                final TextView textviewinfo = (TextView) getView().findViewById(R.id.tv_cage3);
-                textviewinfo.setVisibility(View.VISIBLE);
-                textviewinfo.setOnClickListener(new View.OnClickListener() {
+                final TextView textviewinfo3 = (TextView) getView().findViewById(R.id.tv_cage3);
+                textviewinfo3.setVisibility(View.VISIBLE);
+                textviewinfo3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        textviewinfo.setVisibility(View.INVISIBLE);
+                        singletonn.ajc1();
+                        textviewinfo3.setVisibility(View.INVISIBLE);
                     }
                 });
                 return false;
@@ -199,17 +202,19 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
             @Override
             public boolean onMarkerClick(Marker markerG4) {
                 markerG4.getTag();
-                final TextView textviewinfo = (TextView) getView().findViewById(R.id.tv_cage4);
-                textviewinfo.setVisibility(View.VISIBLE);
-                textviewinfo.setOnClickListener(new View.OnClickListener() {
+                final TextView textviewinfo4 = (TextView) getView().findViewById(R.id.tv_cage4);
+                textviewinfo4.setVisibility(View.VISIBLE);
+                textviewinfo4.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        textviewinfo.setVisibility(View.INVISIBLE);
+                        singletonn.ajc1();
+                        textviewinfo4.setVisibility(View.INVISIBLE);
                     }
                 });
                 return false;
             }
         });
+
 
     }
 
