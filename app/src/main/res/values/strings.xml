@@ -34,9 +34,9 @@
 
 
     <string name="Car_en_Sac">CARenSAC</string>
-    <string name="gage1">gage1</string>
-    <string name="gage2">gage2</string>
-    <string name="gage3">gage3</string>
-    <string name="gage4">gage4</string>
+    <string name="gage1">Dire joyeuse condoléances aux deux prochaines personnes que tu vois</string>
+    <string name="gage2">Danse comme un zombie pendant 30secondes</string>
+    <string name="gage3">Prouves que tu n\'es pas un vampire en mangeant</string>
+    <string name="gage4">Prends une araignée dans les mains et offre là au premier passant que tu croises</string>
     <string name="gage5">gage5</string>
 </resources>
