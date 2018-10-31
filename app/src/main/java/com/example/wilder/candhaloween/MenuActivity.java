@@ -2,6 +2,7 @@ package com.example.wilder.candhaloween;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
@@ -38,14 +39,14 @@ public class MenuActivity extends AppCompatActivity
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Tagada), getResources().getDrawable(R.drawable.tagadabonbon),43.592190, 1.441698));
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Marshmallow), getResources().getDrawable(R.drawable.marshmallow),43.594278, 1.444409));
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Dragibus), getResources().getDrawable(R.drawable.dragibus),43.594278, 1.444409));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Ourson), getResources().getDrawable(R.drawable.ourson),43.59923812, 1.43892695));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Arlequin), getResources().getDrawable(R.drawable.arlequin),43.60201328, 1.44465463));
+        //mBonbon.add(new BonbonModel(getResources().getString(R.string.Ourson), getResources().getDrawable(R.drawable.ourson),43.59923812, 1.43892695));
+        //mBonbon.add(new BonbonModel(getResources().getString(R.string.Arlequin), getResources().getDrawable(R.drawable.arlequin),43.60201328, 1.44465463));
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Oeuf_au_plat), getResources().getDrawable(R.drawable.oeuf),43.59388259, 1.4508802));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Schtroumpfs), getResources().getDrawable(R.drawable.schtrounf),43.60152454, 1.43924955));
+        //mBonbon.add(new BonbonModel(getResources().getString(R.string.Schtroumpfs), getResources().getDrawable(R.drawable.schtrounf),43.60152454, 1.43924955));
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Carambar), getResources().getDrawable(R.drawable.carambar),43.60400284, 1.432515));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Cola), getResources().getDrawable(R.drawable.cola),43.59839905, 1.44201096));
+        //mBonbon.add(new BonbonModel(getResources().getString(R.string.Cola), getResources().getDrawable(R.drawable.cola),43.59839905, 1.44201096));
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Roudoudou), getResources().getDrawable(R.drawable.roudoudou),43.60572688, 1.45061624));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Langue_pik), getResources().getDrawable(R.drawable.languedechat),43.6035295, 1.44562683));
+        //mBonbon.add(new BonbonModel(getResources().getString(R.string.Langue_pik), getResources().getDrawable(R.drawable.languedechat),43.6035295, 1.44562683));
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Banane), getResources().getDrawable(R.drawable.bananebonbon),43.59147733, 1.440788));
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Boule_de_mammouth), getResources().getDrawable(R.drawable.mamouthbonbon),43.60083768, 1.44874592));
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Skittles), getResources().getDrawable(R.drawable.skittlesbonbon),43.60090453, 1.43445538));
@@ -75,31 +76,19 @@ public class MenuActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         //NavigationView navigationView = findViewById(R.id.nav_view);
         View headerview = navigationView.getHeaderView(0);
-        if(singletonn.getCompteur()<10){
-        ImageView imageUser = headerview.findViewById(R.id.imageView);
-
-        }
-        if (singletonn.getCompteur()>10 && singletonn.getCompteur()<15){
-            ImageView imageUser2 = headerview.findViewById(R.id.imageView2);
-            ImageView imageUser = headerview.findViewById(R.id.imageView);
-            imageUser.setVisibility(View.INVISIBLE);
-            imageUser2.setVisibility(View.VISIBLE);
-
-
-        }
-        if (singletonn.getCompteur()>15){
-            ImageView imageUser3 = headerview.findViewById(R.id.imageView);
-            ImageView imageUser2 = headerview.findViewById(R.id.imageView2);
-            imageUser2.setVisibility(View.INVISIBLE);
-            imageUser3.setVisibility(View.VISIBLE);
-
-        }
-
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         MapFragment mapFragment = new MapFragment();
         ft.replace(R.id.ftMain, mapFragment);
         ft.commit();
+
+        final ImageView imageUser = headerview.findViewById(R.id.imageView);
+
+        new Handler().postDelayed(new Runnable(){
+            public void run() {
+                imageUser.setImageResource(R.drawable.vempire);
+            }
+        }, 30000);
     }
 
 
@@ -131,12 +120,11 @@ public class MenuActivity extends AppCompatActivity
             ft.replace(R.id.ftMain, listFragment);
             ft.commit();
 
-        } else if (id == R.id.nav_share) {
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+
     }
 }

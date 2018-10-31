@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
@@ -63,30 +64,19 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        final singleton singletonn = singleton.getInstance();
+        singletonn.getBonbons();
         ArrayList<BonbonModel> mBonbon = new ArrayList<>();
 
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Crocodile), getResources().getDrawable(R.drawable.crocodilebonbno),43.606489, 1.444153));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Tagada), getResources().getDrawable(R.drawable.tagadabonbon),43.592190, 1.441698));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Marshmallow), getResources().getDrawable(R.drawable.marshmallow),43.594278, 1.444409));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Dragibus), getResources().getDrawable(R.drawable.dragibus),43.594278, 1.444409));
+
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Ourson), getResources().getDrawable(R.drawable.ourson),43.59923812, 1.43892695));
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Arlequin), getResources().getDrawable(R.drawable.arlequin),43.60201328, 1.44465463));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Oeuf_au_plat), getResources().getDrawable(R.drawable.oeuf),43.59388259, 1.4508802));
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Schtroumpfs), getResources().getDrawable(R.drawable.schtrounf),43.60152454, 1.43924955));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Carambar), getResources().getDrawable(R.drawable.carambar),43.60400284, 1.432515));
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Cola), getResources().getDrawable(R.drawable.cola),43.59839905, 1.44201096));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Roudoudou), getResources().getDrawable(R.drawable.roudoudou),43.60572688, 1.45061624));
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Langue_pik), getResources().getDrawable(R.drawable.languedechat),43.6035295, 1.44562683));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Banane), getResources().getDrawable(R.drawable.bananebonbon),43.59147733, 1.440788));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Boule_de_mammouth), getResources().getDrawable(R.drawable.mamouthbonbon),43.60083768, 1.44874592));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Skittles), getResources().getDrawable(R.drawable.skittlesbonbon),43.60090453, 1.43445538));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.M_Ms), getResources().getDrawable(R.drawable.mnmbonbon),43.60363231, 1.43805026));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Kinder_surprise), getResources().getDrawable(R.drawable.kindersurprisebonbon),43.59882815, 1.4413074));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Car_en_Sac), getResources().getDrawable(R.drawable.pilsbonbon),43.59431834, 1.43704105));
-        mBonbon.add(new BonbonModel(getResources().getString(R.string.Car_en_Sac), getResources().getDrawable(R.drawable.pilsbonbon),43.6062955, 1.43540997));
 
         ArrayList<Gagemodel> mGage = new ArrayList<>();
-        mGage.add(new Gagemodel(getString(R.string.gage1), 43.606838, 1.465845, getResources().getString(R.string.gage1)));
+        mGage.add(new Gagemodel(getString(R.string.gage1), 43.60083768, 1.44874592, getResources().getString(R.string.gage1)));
         mGage.add(new Gagemodel(getString(R.string.gage2), 43.604268, 1.441019, getResources().getString(R.string.gage2)));
         mGage.add(new Gagemodel(getString(R.string.gage3), 43.614954, 1.499982, getResources().getString(R.string.gage3)));
         //mGage.add(new Gagemodel(getString(R.string.gage4), 43.604268, 1.441019, getResources().getString(R.string.gage4)));
@@ -112,20 +102,6 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
             BonbonModel bonbonModel3 = mBonbon.get(2);
             BonbonModel bonbonModel4 = mBonbon.get(3);
             BonbonModel bonbonModel5 = mBonbon.get(4);
-            BonbonModel bonbonModel6 = mBonbon.get(5);
-            BonbonModel bonbonModel7 = mBonbon.get(6);
-            BonbonModel bonbonModel8 = mBonbon.get(7);
-            BonbonModel bonbonModel9 = mBonbon.get(8);
-            BonbonModel bonbonModel10 = mBonbon.get(9);
-            BonbonModel bonbonModel11 = mBonbon.get(10);
-            BonbonModel bonbonModel12 = mBonbon.get(11);
-            BonbonModel bonbonModel13 = mBonbon.get(12);
-            BonbonModel bonbonModel14 = mBonbon.get(13);
-            BonbonModel bonbonModel15 = mBonbon.get(14);
-            BonbonModel bonbonModel16 = mBonbon.get(15);
-            BonbonModel bonbonModel17 = mBonbon.get(16);
-            BonbonModel bonbonModel18 = mBonbon.get(17);
-            BonbonModel bonbonModel19 = mBonbon.get(18);
 
 
             Marker markerB = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel.getLatitude(), bonbonModel.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
@@ -133,39 +109,11 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
             Marker markerB3 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel3.getLatitude(), bonbonModel3.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
             Marker markerB4 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel4.getLatitude(), bonbonModel4.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
             Marker markerB5 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel5.getLatitude(), bonbonModel5.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-            Marker markerB6 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel6.getLatitude(), bonbonModel6.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-            Marker markerB7 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel7.getLatitude(), bonbonModel7.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-            Marker markerB8 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel8.getLatitude(), bonbonModel8.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-            Marker markerB9 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel9.getLatitude(), bonbonModel9.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-            Marker markerB10 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel10.getLatitude(), bonbonModel10.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-            Marker markerB11 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel11.getLatitude(), bonbonModel11.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-            Marker markerB12 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel12.getLatitude(), bonbonModel12.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-            Marker markerB13 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel13.getLatitude(), bonbonModel13.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-            Marker markerB14 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel14.getLatitude(), bonbonModel14.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-            Marker markerB15 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel14.getLatitude(), bonbonModel14.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-            Marker markerB16 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel14.getLatitude(), bonbonModel14.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-            Marker markerB17 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel14.getLatitude(), bonbonModel14.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-            Marker markerB18 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel14.getLatitude(), bonbonModel14.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-            Marker markerB19 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel14.getLatitude(), bonbonModel14.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
             markerB.setTag(bonbonModel);
             markerB2.setTag(bonbonModel2);
             markerB3.setTag(bonbonModel3);
             markerB4.setTag(bonbonModel4);
             markerB5.setTag(bonbonModel5);
-            markerB6.setTag(bonbonModel6);
-            markerB7.setTag(bonbonModel7);
-            markerB8.setTag(bonbonModel8);
-            markerB9.setTag(bonbonModel9);
-            markerB10.setTag(bonbonModel10);
-            markerB11.setTag(bonbonModel11);
-            markerB12.setTag(bonbonModel12);
-            markerB13.setTag(bonbonModel13);
-            markerB14.setTag(bonbonModel14);
-            markerB15.setTag(bonbonModel15);
-            markerB16.setTag(bonbonModel16);
-            markerB17.setTag(bonbonModel17);
-            markerB18.setTag(bonbonModel18);
-            markerB19.setTag(bonbonModel19);
             Marker markerG = mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel.getLatitude(), gagemodel.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
             Marker markerG2 = mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel2.getLatitude(), gagemodel2.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
             Marker markerG3 = mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel3.getLatitude(), gagemodel3.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
@@ -181,6 +129,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker markerG) {
+
                 Object stuff = markerG.getTag();
                 if (stuff == null) {
                     return false;
@@ -196,6 +145,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
                     ivPumpkin.setVisibility(View.VISIBLE);
                     ivPumpkin.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.tourne_infini));
                     textviewinfo.setText(g1.getGage());
+
                     ivNoir.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -262,7 +212,19 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         };
 // Start the initial runnable task by posting through the handler
         handler.post(runnableCode);
+
+       // createMarkers(pickClosestBars(getActivity(), CLOSEST_BAR_NUMBERS));
     }
+
+    /*public ArrayList<BonbonModel> pickClosestBars(ArrayList<BonbonModel> Bonbons, int range) {
+        ArrayList<BonbonModel> closestBars = new ArrayList<>();
+        range = Math.min(range, Bonbons.size());
+
+        for (int i = 0; i < range; i++) {
+            closestBars.add((Bonbons).get(i));
+        }
+        return closestBars;
+    }*/
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {

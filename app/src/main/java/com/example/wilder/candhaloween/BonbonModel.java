@@ -16,8 +16,18 @@ public class BonbonModel {
     private Drawable photo;
     private double latitude;
     private  double longitude;
+    private String compteur;
 
 
+
+    public BonbonModel(String name, Drawable photo, double latitude, double longitude, String compteur) {
+
+        this.name = name;
+        this.photo = photo;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.compteur = compteur;
+    }
 
     public BonbonModel(String name, Drawable photo, double latitude, double longitude) {
 
@@ -65,7 +75,13 @@ public class BonbonModel {
     }
 
 
+    public String getCompteur() {
+        return compteur;
+    }
 
+    public void setCompteur(String compteur) {
+        this.compteur = compteur;
+    }
 }
 
 

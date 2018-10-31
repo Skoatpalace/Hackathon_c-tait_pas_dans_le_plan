@@ -51,11 +51,13 @@ public class MyitemRecyclerViewAdapter extends RecyclerView.Adapter<MyitemRecycl
 
         ImageView ivBonbon;
         TextView tvNomBonbon;
+        TextView tvCompteur;
 
         public ViewHolder(View v) {
             super(v);
             this.ivBonbon = v.findViewById(R.id.iv_bonbon);
             this.tvNomBonbon = v.findViewById(R.id.tv_bonbon);
+            this.tvCompteur = v.findViewById(R.id.tv_compteur);
         }
     }
 
@@ -74,15 +76,9 @@ public class MyitemRecyclerViewAdapter extends RecyclerView.Adapter<MyitemRecycl
         final BonbonModel bonbonModel = mBonbon.get(position);
         //TODO: ajout images
         singleton sg = singleton.getInstance();
-        if (sg.isGris() == false) {
-
-            holder.ivBonbon.setImageDrawable(bonbonModel.getPhoto());
-        } else if (sg.isGris() == true){
-
-            holder.ivBonbon.setImageResource(R.drawable.bonbongris);
-        }
-
+        holder.ivBonbon.setImageDrawable(bonbonModel.getPhoto());
         holder.tvNomBonbon.setText(bonbonModel.getName());
+        holder.tvCompteur.setText(bonbonModel.getCompteur());
     }
 
     @Override
