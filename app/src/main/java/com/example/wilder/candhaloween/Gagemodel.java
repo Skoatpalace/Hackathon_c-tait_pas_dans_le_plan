@@ -4,15 +4,26 @@ public class Gagemodel {
     private String name;
     private double latitude;
     private double longitude;
+    private  String gage;
 
-    public Gagemodel(String name, double latitude, double longitude) {
+    public Gagemodel(String name, double latitude, double longitude, String gage) {
         this.name = name;
         this.latitude=latitude;
         this.longitude=longitude;
+        this.gage=gage;
 
     }
     public Gagemodel() {
     }
+
+    public String getGage() {
+        return gage;
+    }
+
+    public void setGage(String gage) {
+        this.gage = gage;
+    }
+
     public String getName() {
         return name;
     }

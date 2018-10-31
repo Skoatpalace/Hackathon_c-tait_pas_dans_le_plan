@@ -17,12 +17,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class MenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    int compteur=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,7 @@ public class MenuActivity extends AppCompatActivity
         setContentView(R.layout.activity_menu);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        singleton singletonn = singleton.getInstance();
         ArrayList<BonbonModel> mBonbon = new ArrayList<>();
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Crocodile), getResources().getDrawable(R.drawable.crocodilebonbno),43.600346, 1.443844));
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Tagada), getResources().getDrawable(R.drawable.tagadabonbon),43.700998, 1.489429));
@@ -70,6 +72,27 @@ public class MenuActivity extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        //NavigationView navigationView = findViewById(R.id.nav_view);
+        View headerview = navigationView.getHeaderView(0);
+        if(singletonn.getCompteur()<10){
+        ImageView imageUser = headerview.findViewById(R.id.imageView);
+
+        }
+        if (singletonn.getCompteur()>10 && singletonn.getCompteur()<15){
+            ImageView imageUser2 = headerview.findViewById(R.id.imageView2);
+            ImageView imageUser = headerview.findViewById(R.id.imageView);
+            imageUser.setVisibility(View.INVISIBLE);
+            imageUser2.setVisibility(View.VISIBLE);
+
+
+        }
+        if (singletonn.getCompteur()>15){
+            ImageView imageUser3 = headerview.findViewById(R.id.imageView);
+            ImageView imageUser2 = headerview.findViewById(R.id.imageView2);
+            imageUser2.setVisibility(View.INVISIBLE);
+            imageUser3.setVisibility(View.VISIBLE);
+
+        }
 
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -115,5 +138,4 @@ public class MenuActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
 }
