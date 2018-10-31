@@ -91,6 +91,15 @@ public class MenuActivity extends AppCompatActivity
                 imageUser.setImageResource(R.drawable.vempire);
             }
         }, 30000);
+
+        ImageView imageBlood = findViewById(R.id.bloodblood);
+        imageBlood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MediaPlayer mediaPlayer = MediaPlayer.create(MenuActivity.this,R.raw.cri);
+                mediaPlayer.start();
+            }
+        });
     }
 
 
