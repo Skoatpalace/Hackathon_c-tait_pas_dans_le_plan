@@ -14,6 +14,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -187,13 +189,21 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
 
                     Gagemodel g1=(Gagemodel)markerG.getTag();
                     final TextView textviewinfo = (TextView) getView().findViewById(R.id.tv_cage1);
+                    final ImageView ivNoir = getView().findViewById(R.id.iv_splashscreen);
+                    final ImageView ivPumpkin = getView().findViewById(R.id.iv_pumpkin);
                     textviewinfo.setVisibility(View.VISIBLE);
+                    ivNoir.setVisibility(View.VISIBLE);
+                    ivPumpkin.setVisibility(View.VISIBLE);
+                    ivPumpkin.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.tourne_infini));
                     textviewinfo.setText(g1.getGage());
-                    textviewinfo.setOnClickListener(new View.OnClickListener() {
+                    ivNoir.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             singletonn.ajc1();
                             textviewinfo.setVisibility(View.INVISIBLE);
+                            ivNoir.setVisibility(View.INVISIBLE);
+                            ivPumpkin.clearAnimation();
+                            ivPumpkin.setVisibility(View.INVISIBLE);
                         }
 
                     });
