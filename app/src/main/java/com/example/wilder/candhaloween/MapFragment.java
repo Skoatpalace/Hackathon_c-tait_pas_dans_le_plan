@@ -172,25 +172,141 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
             }
             BonbonModel bonbonModel=mBonbon.get(0);
             Gagemodel gagemodel =mGage.get(0);
+            Gagemodel gagemodel2 =mGage.get(1);
+            Gagemodel gagemodel3 =mGage.get(2);
+            Gagemodel gagemodel4 =mGage.get(3);
+            Gagemodel gagemodel5 =mGage.get(4);
+            BonbonModel bonbonModel2=mBonbon.get(1);
+            BonbonModel bonbonModel3=mBonbon.get(2);
+            BonbonModel bonbonModel4=mBonbon.get(3);
+            BonbonModel bonbonModel5=mBonbon.get(4);
+            BonbonModel bonbonModel6=mBonbon.get(5);
+            BonbonModel bonbonModel7=mBonbon.get(6);
+            BonbonModel bonbonModel8=mBonbon.get(7);
+            BonbonModel bonbonModel9=mBonbon.get(8);
+            BonbonModel bonbonModel10=mBonbon.get(9);
+            BonbonModel bonbonModel11=mBonbon.get(10);
+            BonbonModel bonbonModel12=mBonbon.get(11);
+            BonbonModel bonbonModel13=mBonbon.get(12);
+            BonbonModel bonbonModel14=mBonbon.get(13);
+
+
             Marker marker = mMap.addMarker(new MarkerOptions().position(esquirol).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
-            Marker markerB = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel.getLatitude(), bonbonModel.getLongitude())));
-            Marker markerG= mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel.getLatitude(),gagemodel.getLongitude())));
+            Marker markerB = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel.getLatitude(), bonbonModel.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+            Marker markerB2 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel2.getLatitude(), bonbonModel2.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+            Marker markerB3 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel3.getLatitude(), bonbonModel3.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+            Marker markerB4 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel4.getLatitude(), bonbonModel4.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+            Marker markerB5 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel5.getLatitude(), bonbonModel5.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+            Marker markerB6 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel6.getLatitude(), bonbonModel6.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+            Marker markerB7 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel7.getLatitude(), bonbonModel7.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+            Marker markerB8 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel8.getLatitude(), bonbonModel8.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+            Marker markerB9 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel9.getLatitude(), bonbonModel9.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+            Marker markerB10 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel10.getLatitude(), bonbonModel10.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+            Marker markerB11 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel11.getLatitude(), bonbonModel11.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+            Marker markerB12 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel12.getLatitude(), bonbonModel12.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+            Marker markerB13 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel13.getLatitude(), bonbonModel13.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+            Marker markerB14 = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel14.getLatitude(), bonbonModel14.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+           // Marker markerB = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel.getLatitude(), bonbonModel.getLongitude())));
+
+            Marker markerG= mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel.getLatitude(),gagemodel.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+            Marker markerG2= mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel2.getLatitude(),gagemodel2.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+            Marker markerG3= mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel3.getLatitude(),gagemodel3.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+            Marker markerG4= mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel4.getLatitude(),gagemodel4.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+
+            //Marker markerG= mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel.getLatitude(),gagemodel.getLongitude())));
         }
 
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
-                Toast.makeText(getActivity(), R.string.catchbonbon, Toast.LENGTH_SHORT);
-                return false;
+                ArrayList<Gagemodel> mGage = new ArrayList<>();
+                mGage.add(new Gagemodel(getString(R.string.gage1), 43.606838, 1.465845));
+                mGage.add(new Gagemodel(getString(R.string.gage2), 43.604268, 1.441019));
+                mGage.add(new Gagemodel(getString(R.string.gage3), 43.614954, 1.499982));
+                mGage.add(new Gagemodel(getString(R.string.gage4), 43.604268, 1.441019));
+                mGage.add(new Gagemodel(getString(R.string.gage5), 43.567716, 1.487043));
+                Gagemodel gagemodel = mGage.get(0);
+                Gagemodel gagemodel2 = mGage.get(1);
+                Gagemodel gagemodel3 = mGage.get(2);
+                Gagemodel gagemodel4 = mGage.get(3);
+                Gagemodel gagemodel5 = mGage.get(4);
 
+                Marker markerG = mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel.getLatitude(), gagemodel.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+                Marker markerG2 = mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel2.getLatitude(), gagemodel2.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+                Marker markerG3 = mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel3.getLatitude(), gagemodel3.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+                Marker markerG4 = mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel4.getLatitude(), gagemodel4.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+               //Marker markerG5 = mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel5.getLatitude(), gagemodel5.getLongitude())).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+
+                if (marker == markerG) {
+
+                    final TextView textviewinfo = (TextView) getView().findViewById(R.id.tv_cage1);
+                    textviewinfo.setVisibility(View.VISIBLE);
+                    textviewinfo.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            textviewinfo.setVisibility(View.INVISIBLE);
+                        }
+                    });
+                    // Toast.makeText(getActivity(), R.string.catchbonbon, Toast.LENGTH_SHORT)
+
+                }
+                if (marker == markerG2) {
+
+                    final TextView textviewinfo = (TextView) getView().findViewById(R.id.tv_cage2);
+                    textviewinfo.setVisibility(View.VISIBLE);
+                    textviewinfo.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            textviewinfo.setVisibility(View.INVISIBLE);
+                        }
+                    });
+                    // Toast.makeText(getActivity(), R.string.catchbonbon, Toast.LENGTH_SHORT)
+
+                }
+                if (marker == markerG3) {
+
+                    final TextView textviewinfo = (TextView) getView().findViewById(R.id.tv_cage3);
+                    textviewinfo.setVisibility(View.VISIBLE);
+                    textviewinfo.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            textviewinfo.setVisibility(View.INVISIBLE);
+                        }
+                    });
+                    // Toast.makeText(getActivity(), R.string.catchbonbon, Toast.LENGTH_SHORT)
+
+                }
+                if (marker == markerG4) {
+
+                    final TextView textviewinfo = (TextView) getView().findViewById(R.id.tv_cage4);
+                    textviewinfo.setVisibility(View.VISIBLE);
+                    textviewinfo.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            textviewinfo.setVisibility(View.INVISIBLE);
+                        }
+                    });
+                    // Toast.makeText(getActivity(), R.string.catchbonbon, Toast.LENGTH_SHORT)
+
+                }
+
+                return false;
             }
         });
+        }
 
 
 
 
 
-    }
+
+
+
+
+
+
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
