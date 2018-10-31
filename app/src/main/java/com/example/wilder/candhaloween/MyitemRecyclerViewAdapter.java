@@ -1,5 +1,6 @@
 package com.example.wilder.candhaloween;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,16 +24,19 @@ public class MyitemRecyclerViewAdapter extends RecyclerView.Adapter<MyitemRecycl
     private ArrayList<BonbonModel> mBonbon = new ArrayList<>();
 
     public MyitemRecyclerViewAdapter(ArrayList<BonbonModel> bonbon) {
+
         mBonbon = bonbon;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView ivBonbon;
+        TextView tvNomBonbon;
 
         public ViewHolder(View v) {
             super(v);
             this.ivBonbon = v.findViewById(R.id.iv_bonbon);
+            this.tvNomBonbon = v.findViewById(R.id.tv_bonbon);
         }
     }
 
@@ -51,6 +55,7 @@ public class MyitemRecyclerViewAdapter extends RecyclerView.Adapter<MyitemRecycl
         final BonbonModel bonbonModel = mBonbon.get(position);
         //TODO: ajout images
         //holder.ivBonbon.setImageDrawable(mBonbon.);
+        holder.tvNomBonbon.setText(bonbonModel.getName());
     }
 
     @Override
