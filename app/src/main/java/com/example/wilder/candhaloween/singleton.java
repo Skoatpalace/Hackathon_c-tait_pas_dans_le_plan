@@ -24,7 +24,7 @@ class singleton {
     }
 
     public boolean isGris() {
-        return gris;
+        return true;
     }
 
 }
