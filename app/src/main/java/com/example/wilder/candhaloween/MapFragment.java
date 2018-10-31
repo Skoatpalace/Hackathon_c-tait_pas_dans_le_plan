@@ -21,6 +21,8 @@ import android.widget.ImageView;
 import android.widget.ListPopupWindow;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import android.Manifest;
@@ -110,7 +112,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
     private static final float DEFAULT_ZOOM = 17f;
 
-    // private static final String TAG = MapsFragment.class.getSimpleName();
+   // private static final String TAG = MapsFragment.class.getSimpleName();
 
     private LatLng esquirol = new LatLng(43.600346, 1.443844);
 
@@ -124,8 +126,6 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
     final static int POPUP_POSITION_X = 0;
     final static int POPUP_POSITION_Y = 0;
     private PopupWindow popUp;
-
-
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -151,6 +151,14 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Kinder_surprise), null,43.6062955,  1.43540997));
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Car_en_Sac), null,43.5974498, 1.44651802));
         mBonbon.add(new BonbonModel(getResources().getString(R.string.Reglisse), null,43.59647033, 1.44742451));
+
+        ArrayList<Gagemodel>mGage= new ArrayList<>();
+        mGage.add(new Gagemodel(getString(R.string.gage1),43.606838,	1.465845));
+        mGage.add(new Gagemodel(getString(R.string.gage2),43.604268,	1.441019));
+        mGage.add(new Gagemodel(getString(R.string.gage3),43.614954,1.499982));
+        mGage.add(new Gagemodel(getString(R.string.gage4),43.604268,	1.441019));
+        mGage.add(new Gagemodel(getString(R.string.gage5),43.567716,	1.487043));
+
         mMap = googleMap;
         mMap.setMapStyle((MapStyleOptions.loadRawResourceStyle(getContext(), R.raw.tyle_json)));
         moveCamera(esquirol, DEFAULT_ZOOM);
@@ -162,10 +170,24 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
                     != PackageManager.PERMISSION_GRANTED) {
                 mMap.setMyLocationEnabled(true);
             }
-            BonbonModel bonbonModel = new BonbonModel();
-            //Marker marker = mMap.addMarker(new MarkerOptions().position(esquirol));
-            mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel.getLatitude(), bonbonModel.getLongitude())));
+            BonbonModel bonbonModel=mBonbon.get(0);
+            Gagemodel gagemodel =mGage.get(0);
+            Marker marker = mMap.addMarker(new MarkerOptions().position(esquirol).icon(BitmapDescriptorFactory.fromResource(R.drawable.bonbonlambda)));
+            Marker markerB = mMap.addMarker(new MarkerOptions().position(new LatLng(bonbonModel.getLatitude(), bonbonModel.getLongitude())));
+            Marker markerG= mMap.addMarker(new MarkerOptions().position(new LatLng(gagemodel.getLatitude(),gagemodel.getLongitude())));
         }
+
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                Toast.makeText(getActivity(), R.string.catchbonbon, Toast.LENGTH_SHORT);
+                return false;
+
+            }
+        });
+
+
+
 
 
     }
@@ -179,19 +201,17 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         if (mapFragment != null) {
             mapFragment.getMapAsync(this);
-
         }
 
-
+        //TODO: A faire démarrer quand click sur trick + visible
+        //ImageView ivPumpkin = (ImageView) getActivity().findViewById(R.id.iv_pumpkin);
+        //ivPumpkin.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.tourne_infini));
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-
     }
-
 
     private void getDeviceLocation() {
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getActivity());
@@ -205,7 +225,6 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
                             Location currentLocation = (Location) task.getResult();
                             if (currentLocation != null) {
                                 moveCamera(esquirol, DEFAULT_ZOOM);
-
                             }
                         } else {
                             Toast.makeText(getActivity(), R.string.unableCurrentLocation, Toast.LENGTH_SHORT).show();
@@ -261,6 +280,46 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
             }
         }
     }
-}
+    public LatLng getRandomLocation(LatLng point, int radius) {
+
+        List<LatLng> randomPoints = new ArrayList<>();
+        List<Float> randomDistances = new ArrayList<>();
+        Location myLocation = new Location("");
+        myLocation.setLatitude(point.latitude);
+        myLocation.setLongitude(point.longitude);
+
+        //This is to generate 10 random points
+        for (int i = 0; i < 10; i++) {
+            double x0 = point.latitude;
+            double y0 = point.longitude;
+
+            Random random = new Random();
+
+            // Convert radius from meters to degrees
+            double radiusInDegrees = radius / 111000f;
+
+            double u = random.nextDouble();
+            double v = random.nextDouble();
+            double w = radiusInDegrees * Math.sqrt(u);
+            double t = 2 * Math.PI * v;
+            double x = w * Math.cos(t);
+            double y = w * Math.sin(t);
+
+            // Adjust the x-coordinate for the shrinking of the east-west distances
+            double new_x = x / Math.cos(y0);
+
+            double foundLatitude = new_x + x0;
+            double foundLongitude = y + y0;
+            LatLng randomLatLng = new LatLng(foundLatitude, foundLongitude);
+            randomPoints.add(randomLatLng);
+            Location l1 = new Location("");
+            l1.setLatitude(randomLatLng.latitude);
+            l1.setLongitude(randomLatLng.longitude);
+            randomDistances.add(l1.distanceTo(myLocation));
+        }
+        //Get nearest point to the centre
+        int indexOfNearestPointToCentre = randomDistances.indexOf(Collections.min(randomDistances));
+        return randomPoints.get(indexOfNearestPointToCentre);
+    }
 
 
