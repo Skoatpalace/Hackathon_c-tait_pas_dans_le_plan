@@ -243,6 +243,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
                         @Override
                         public void onClick(View view) {
                             textviewinfo.setVisibility(View.INVISIBLE);
+
                         }
                     });
                     // Toast.makeText(getActivity(), R.string.catchbonbon, Toast.LENGTH_SHORT)
