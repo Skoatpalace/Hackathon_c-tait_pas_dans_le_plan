@@ -214,7 +214,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
                     markerG.setVisible(false);
                 } else {
                     BonbonModel b1 = (BonbonModel)markerG.getTag();
-                    MediaPlayer mediaPlayerB = MediaPlayer.create(getActivity(),R.raw.papier);
+                    MediaPlayer mediaPlayerB = MediaPlayer.create(getActivity(),R.raw.papercandy);
                     mediaPlayerB.start();
                     Toast.makeText(getActivity(), b1.getName(), Toast.LENGTH_SHORT).show();
                     singletonn.ajc2();
@@ -252,15 +252,18 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
 
 
         final Handler handler = new Handler();
-
+        //final MediaPlayer mediaPlayerC = MediaPlayer.create(getActivity(),R.raw.cri);
         Runnable runnableCode = new Runnable() {
             @Override
             public void run() {
                 Log.d("Handlers", "Called on main thread");
                 gifSpider.setVisibility(View.VISIBLE);
+                //mediaPlayerC.start();
                 new Handler().postDelayed(new Runnable(){
                     public void run() {
                         gifSpider.setVisibility(View.INVISIBLE);
+                        //mediaPlayerC.stop();
+                        //mediaPlayerC.release();
                     }
                 }, 4020);
                 handler.postDelayed(this, 30000);
