@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -91,6 +92,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         mGage.add(new Gagemodel(getString(R.string.gage4), 43.567716, 1.487043,getResources().getString(R.string.gage4)));
 
         mMap = googleMap;
+        mMap.getUiSettings().setMapToolbarEnabled(false);
         mMap.setMapStyle((MapStyleOptions.loadRawResourceStyle(getContext(), R.raw.tyle_json)));
         moveCamera(esquirol, DEFAULT_ZOOM);
         getLocationPermission();
@@ -189,6 +191,8 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
                 if (stuff.getClass() == Gagemodel.class) {
 
                     Gagemodel g1=(Gagemodel)markerG.getTag();
+                    MediaPlayer mediaPlayer = MediaPlayer.create(getActivity(),R.raw.piano);
+                    mediaPlayer.start();
                     final TextView textviewinfo = (TextView) getView().findViewById(R.id.tv_cage1);
                     textviewinfo.setVisibility(View.VISIBLE);
                     textviewinfo.setText(g1.getGage());
@@ -203,6 +207,8 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
                     markerG.setVisible(false);
                 } else {
                     BonbonModel b1 = (BonbonModel)markerG.getTag();
+                    MediaPlayer mediaPlayerB = MediaPlayer.create(getActivity(),R.raw.papier);
+                    mediaPlayerB.start();
                     Toast.makeText(getActivity(), b1.getName(), Toast.LENGTH_SHORT).show();
                     singletonn.ajc2();
                     singletonn.isGris();
